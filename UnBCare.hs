@@ -38,7 +38,7 @@ Caso o remédio ainda não exista no estoque, o novo estoque a ser retornado dev
 -}
 
 comprarMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
-comprarMedicamento = undefined
+comprarMedicamento medicamento quantidade [] = (medicamento, quantidade) : []
 
 
 {-
