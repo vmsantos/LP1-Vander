@@ -11,8 +11,6 @@ import ModeloDados
 ╚██████╔╝██║░╚███║██████╦╝  ╚█████╔╝██║░░██║██║░░██║███████╗
 ░╚═════╝░╚═╝░░╚══╝╚═════╝░  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝
 
- 
- 
 O objetivo desse trabalho é fornecer apoio ao gerenciamento de cuidados a serem prestados a um paciente.
 O paciente tem um receituario médico, que indica os medicamentos a serem tomados com seus respectivos horários durante um dia.
 Esse receituário é organizado em um plano de medicamentos que estabelece, por horário, quais são os remédios a serem
@@ -25,7 +23,6 @@ modelo de dados.
 
 -}
 
-
 {-
 
    QUESTÃO 1, VALOR: 1,0 ponto
@@ -37,9 +34,43 @@ Caso o remédio ainda não exista no estoque, o novo estoque a ser retornado dev
 
 -}
 
+{-
+
+step1 :: Eq a => [a] -> [a] -> [Bool]
+step1 xs ys = map checkOne xs
+  where checkOne x =
+
+-}
+atualizaQuantidade :: String -> Int -> [(String, Int)] -> [(String, Int)]
+atualizaQuantidade medicamento quantidade ((n, m) : tail)
+  | medicamento == n = (n, m + quantidade) : tail
+  | otherwise = (n, m) : atualizaQuantidade medicamento quantidade tail
+--atualizaQuantidade _ _ [] = []
+
+isElem :: Eq a => a -> [a] -> Bool
+isElem x xs = any (== x) xs
+
+getRow :: [(a, b)] -> [a]
+getRow lst = [fst x | x <- lst]
+
+getRow2 :: [(a, b)] -> [a]
+getRow2 lst = foldr (\x acc -> (fst x) : acc) [] lst
+
 comprarMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
 comprarMedicamento medicamento quantidade [] = (medicamento, quantidade) : []
+comprarMedicamento medicamento quantidade estoquemedicamentos
+   | elem medicamento (getRow estoquemedicamentos) = atualizaQuantidade medicamento quantidade estoquemedicamentos 
+   | otherwise = (medicamento, quantidade) : estoquemedicamentos 
 
+
+
+--if p x then f x else x) xs
+
+{-
+comprarMedicamento medicamento quantidade ((m, q) : estoquemedicamentos)
+    | medicamento == m  = [(m, q + quantidade)] ++ estoquemedicamentos
+    | otherwise   = (m, q) : estoquemedicamentos
+-}
 
 {-
    QUESTÃO 2, VALOR: 1,0 ponto
@@ -54,7 +85,6 @@ onde v é o novo estoque.
 tomarMedicamento :: Medicamento -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 tomarMedicamento = undefined
 
-
 {-
    QUESTÃO 3  VALOR: 1,0 ponto
 
@@ -66,7 +96,6 @@ Se o medicamento não existir, retorne 0.
 
 consultarMedicamento :: Medicamento -> EstoqueMedicamentos -> Quantidade
 consultarMedicamento = undefined
-
 
 {-
    QUESTÃO 4  VALOR: 1,0 ponto
@@ -83,7 +112,6 @@ consultarMedicamento = undefined
 
 demandaMedicamentos :: Receituario -> EstoqueMedicamentos
 demandaMedicamentos = undefined
-
 
 {-
    QUESTÃO 5  VALOR: 1,0 ponto, sendo 0,5 para cada função.
@@ -104,7 +132,6 @@ receituarioValido = undefined
 planoValido :: PlanoMedicamento -> Bool
 planoValido = undefined
 
-
 {-
 
    QUESTÃO 6  VALOR: 1,0 ponto,
@@ -122,7 +149,6 @@ planoValido = undefined
 plantaoValido :: Plantao -> Bool
 plantaoValido = undefined
 
-
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
 
@@ -137,7 +163,6 @@ plantaoValido = undefined
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
 geraPlanoReceituario = undefined
 
-
 {- QUESTÃO 8  VALOR: 1,0 ponto
 
  Defina a função "geraReceituarioPlano", cujo tipo é dado abaixo e que retorna um receituário válido a partir de um
@@ -151,12 +176,11 @@ geraPlanoReceituario = undefined
 geraReceituarioPlano :: PlanoMedicamento -> Receituario
 geraReceituarioPlano = undefined
 
-
 {-  QUESTÃO 9 VALOR: 1,0 ponto
 
 Defina a função "executaPlantao", cujo tipo é dado abaixo e que executa um plantão válido a partir de um estoque de medicamentos,
 resultando em novo estoque. A execução consiste em desempenhar, sequencialmente, todos os cuidados para cada horário do plantão.
-Caso o estoque acabe antes de terminar a execução do plantão, o resultado da função deve ser Nothing. Caso contrário, o resultado 
+Caso o estoque acabe antes de terminar a execução do plantão, o resultado da função deve ser Nothing. Caso contrário, o resultado
 deve ser Just v, onde v é o valor final do estoque de medicamentos
 
 -}
@@ -164,12 +188,11 @@ deve ser Just v, onde v é o valor final do estoque de medicamentos
 executaPlantao :: Plantao -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 executaPlantao = undefined
 
-
 {-
 QUESTÃO 10 VALOR: 1,0 ponto
 
-Defina uma função "satisfaz", cujo tipo é dado abaixo e que verifica se um plantão válido satisfaz um plano 
-de medicamento válido para um certo estoque, ou seja, a função "satisfaz" deve verificar se a execução do plantão 
+Defina uma função "satisfaz", cujo tipo é dado abaixo e que verifica se um plantão válido satisfaz um plano
+de medicamento válido para um certo estoque, ou seja, a função "satisfaz" deve verificar se a execução do plantão
 implica terminar com estoque diferente de Nothing e administrar os medicamentos prescritos no plano.
 Dica: fazer correspondencia entre os remédios previstos no plano e os ministrados pela execução do plantão.
 Note que alguns cuidados podem ser comprar medicamento e que eles podem ocorrer sozinhos em certo horário ou
@@ -177,9 +200,8 @@ juntamente com ministrar medicamento.
 
 -}
 
-satisfaz :: Plantao -> PlanoMedicamento -> EstoqueMedicamentos  -> Bool
+satisfaz :: Plantao -> PlanoMedicamento -> EstoqueMedicamentos -> Bool
 satisfaz = undefined
-
 
 {-
 
@@ -191,6 +213,5 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
 
 -}
 
-plantaoCorreto :: PlanoMedicamento ->  EstoqueMedicamentos  -> Plantao
+plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto = undefined
-
