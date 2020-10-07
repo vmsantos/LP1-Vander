@@ -47,6 +47,9 @@ receituario1 = [(m1,[8,17]),(m2,[6]),(m3,[22])]
 receituario2 :: Receituario
 receituario2 = [(m1,[8,17]),(m2,[6]),(m3,[22]), (m4,[8,22,23])]
 
+receituario3 :: Receituario
+receituario3 = [(m5,[8,17,23]),(m6,[6,8]),(m7,[22,23]), (m8,[8,10,12,14,22,23]), (m9,[9])]
+
 plano1 :: PlanoMedicamento
 plano1 = [(6,[m2]),(8,[m1]),(17,[m1]),(22,[m3])]
 
@@ -112,11 +115,12 @@ conjuntoCasosTeste2 = and [casoTeste5,casoTeste6]
 --testando consultarMedicamento
 casoTeste7 = consultarMedicamento m2 estoque1 == 5
 casoTeste8 = consultarMedicamento "Aas" estoque1 == 0
-conjuntoCasosTeste3 = and [casoTeste5,casoTeste6]
+conjuntoCasosTeste3 = and [casoTeste6,casoTeste7]
 
 -- testando demandaMedicamentos
 casoTeste9 = demandaMedicamentos receituario1 == [(m1,2),(m2,1),(m3,1)]
-conjuntoCasosTeste4 = and [casoTeste9]
+casoTeste91 = demandaMedicamentos receituario3 == [(m6,2),(m9,1),(m7,2),(m5,3),(m8,6)]
+conjuntoCasosTeste4 = and [casoTeste9, casoTeste91]
 
 --testando geraPlanoReceituario
 casoTeste10 = geraPlanoReceituario receituario1 == [(6,[m2]),(8,[m1]),(17,[m1]),(22,[m3])]

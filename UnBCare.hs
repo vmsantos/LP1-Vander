@@ -45,6 +45,17 @@ atualizaQuantidade :: String -> Int -> [(String, Int)] -> [(String, Int)]
 atualizaQuantidade medicamento quantidade ((n, m) : tail)
   | medicamento == n = (n, m + quantidade) : tail
   | otherwise = (n, m) : atualizaQuantidade medicamento quantidade tail
+
+atualizaQuantidade2 :: String -> [(String, Int)] -> [(String, Int)]
+atualizaQuantidade2 medicamento ((n, m) : tail)
+  | medicamento == n = (n, m - 1) : tail
+  | otherwise = (n, m) : atualizaQuantidade2 medicamento tail
+
+mostraQuantidade :: String -> [(String, Int)] -> Int
+mostraQuantidade medicamento ((n, m) : tail)
+   | medicamento == n = m
+   | otherwise = mostraQuantidade medicamento tail
+
 --atualizaQuantidade _ _ [] = []
 
 isElem :: Eq a => a -> [a] -> Bool
@@ -53,24 +64,17 @@ isElem x xs = any (== x) xs
 getRow :: [(a, b)] -> [a]
 getRow lst = [fst x | x <- lst]
 
+get2Row :: [(a, b)] -> [b]
+get2Row lst = [snd x | x <- lst]
+
 getRow2 :: [(a, b)] -> [a]
 getRow2 lst = foldr (\x acc -> (fst x) : acc) [] lst
 
 comprarMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
 comprarMedicamento medicamento quantidade [] = (medicamento, quantidade) : []
 comprarMedicamento medicamento quantidade estoquemedicamentos
-   | elem medicamento (getRow estoquemedicamentos) = atualizaQuantidade medicamento quantidade estoquemedicamentos 
+   | isElem medicamento (getRow estoquemedicamentos) = atualizaQuantidade medicamento quantidade estoquemedicamentos 
    | otherwise = (medicamento, quantidade) : estoquemedicamentos 
-
-
-
---if p x then f x else x) xs
-
-{-
-comprarMedicamento medicamento quantidade ((m, q) : estoquemedicamentos)
-    | medicamento == m  = [(m, q + quantidade)] ++ estoquemedicamentos
-    | otherwise   = (m, q) : estoquemedicamentos
--}
 
 {-
    QUESTÃO 2, VALOR: 1,0 ponto
@@ -83,8 +87,12 @@ onde v é o novo estoque.
 -}
 
 tomarMedicamento :: Medicamento -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
-tomarMedicamento = undefined
-
+tomarMedicamento _ [] = Nothing
+tomarMedicamento medicamento estoquemedicamentos
+   | isElem (medicamento, 0) (estoquemedicamentos) = Nothing
+   | isElem medicamento (getRow estoquemedicamentos) = Just (atualizaQuantidade2 medicamento estoquemedicamentos)
+   | otherwise = Nothing
+   
 {-
    QUESTÃO 3  VALOR: 1,0 ponto
 
@@ -95,7 +103,10 @@ Se o medicamento não existir, retorne 0.
 -}
 
 consultarMedicamento :: Medicamento -> EstoqueMedicamentos -> Quantidade
-consultarMedicamento = undefined
+consultarMedicamento _ [] = 0
+consultarMedicamento medicamento estoquemedicamentos
+   | notElem medicamento (getRow estoquemedicamentos) = 0
+   | otherwise = mostraQuantidade medicamento estoquemedicamentos
 
 {-
    QUESTÃO 4  VALOR: 1,0 ponto
@@ -109,9 +120,21 @@ consultarMedicamento = undefined
   é tomado.
 
 -}
+quickSort :: Ord a => [a] -> [a]
+quickSort [] = []
+quickSort (a:as) = quickSort [e | e <- as, e < a] ++ [a] ++ quickSort [e | e <- as, e >= a]
+
+quickSort2 :: Ord a => [a] -> [a]
+quickSort2 [] = []
+quickSort2 (a:as) = quickSort2 [e | e <- as, e < a] ++ [a] ++ quickSort2 [e | e <- as, e > a]
+
+testeUm :: Receituario -> [(String, Int)]
+testeUm [] = []
+testeUm ((x, xs) : tail)
+  | x /= [] = (x, length xs) : testeUm tail
 
 demandaMedicamentos :: Receituario -> EstoqueMedicamentos
-demandaMedicamentos = undefined
+demandaMedicamentos receituario = quickSort (testeUm receituario)
 
 {-
    QUESTÃO 5  VALOR: 1,0 ponto, sendo 0,5 para cada função.
