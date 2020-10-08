@@ -234,6 +234,11 @@ plantaoValido plantao
   disposição ordenada por horário de todos os remédios que devem ser tomados pelo paciente em um certo horário.
 
 -}
+removeDuplicates :: Eq a => [a] -> [a]
+removeDuplicates = foldl (\seen x -> if x `elem` seen
+                                      then seen
+                                      else seen ++ [x]) []
+
 
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
 geraPlanoReceituario = undefined
