@@ -166,6 +166,7 @@ conjuntoCasosTestePlantaoValido =
       , plantaoValido plantaoInvalido1 == False
       , plantaoValido plantaoInvalido2 == False
       , plantaoValido plantaoInvalido3 == False
+      , plantaoValido plantaoInvalido4 == False
       ]
 
 
