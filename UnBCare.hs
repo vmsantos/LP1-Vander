@@ -204,33 +204,26 @@ planoValido planomedico
 
  -}
 
-verificaOrdMed1 :: (Ord a) => [(a,[b])] -> Bool
-verificaOrdMed1 receituario
-   | primeiraColuna receituario == quickSort (primeiraColuna receituario) = True
+verificaOrdHorario2 :: (Ord a) => [(a,[b])] -> Bool
+verificaOrdHorario2 plantao
+   | primeiraColuna plantao == quickSort (primeiraColuna plantao) = True
    | otherwise = False
 
-verificaOrdHorario1 :: (Ord b) => [(a,[b])] -> Bool
-verificaOrdHorario1 [] = True
-verificaOrdHorario1 ((_, xs) : tail)
-   | xs == quickSort xs = verificaOrdHorario1 tail
-   | otherwise = False
-
-verificaDupHorario1 :: (Ord b) => [(a,[b])] -> Bool
-verificaDupHorario1 [] = False
-verificaDupHorario1 ((_, xs) : tail)
-   | not (temDuplicados xs) = verificaDupHorario1 tail
+verificaDupMed2 :: (Ord b) => [(a,[b])] -> Bool
+verificaDupMed2 [] = False
+verificaDupMed2 ((_, xs) : tail)
+   | not (temDuplicados xs) = verificaDupMed2 tail
    | otherwise = True
 
-verificaDupMed1 :: (Ord a) => [(a,[b])] -> Bool
-verificaDupMed1 receituario = temDuplicados(primeiraColuna receituario)
+verificaDupHorario2 :: (Ord a) => [(a,[b])] -> Bool
+verificaDupHorario2 plantao = temDuplicados(primeiraColuna plantao)
 
 plantaoValido :: Plantao -> Bool
 plantaoValido [] = True
-{-
 plantaoValido plantao
-   | sequence [verificaOrdMed1, verificaOrdHorario1, verificaDupMed1, verificaDupHorario1] plantao == [True, True, False, False] = True
+   | sequence [verificaOrdHorario2, verificaDupHorario2, verificaDupMed2] plantao == [True, True, False, False] = True
    | otherwise = False
--}
+
 {-
    QUESTÃO 7  VALOR: 1,0 ponto          aaaa
 
