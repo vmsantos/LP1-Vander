@@ -221,11 +221,11 @@ verificaDupHorario2 plantao = temDuplicados(primeiraColuna plantao)
 plantaoValido :: Plantao -> Bool
 plantaoValido [] = True
 plantaoValido plantao
-   | sequence [verificaOrdHorario2, verificaDupHorario2, verificaDupMed2] plantao == [True, True, False, False] = True
+   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
    | otherwise = False
 
 {-
-   QUESTÃO 7  VALOR: 1,0 ponto          aaaa
+   QUESTÃO 7  VALOR: 1,0 ponto
 
   Defina a função "geraPlanoReceituario", cujo tipo é dado abaixo e que, a partir de um receituario válido,
   retorne um plano de medicamento válido.
