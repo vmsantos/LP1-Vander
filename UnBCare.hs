@@ -248,6 +248,13 @@ teste1 :: (Medicamento,[Horario]) -> [(Horario,[Medicamento])]
 teste1 (_, []) = []
 teste1 (m, h : tail) = (h, [m]) : (teste1 (m, tail))
 
+teste2 :: Receituario -> PlanoMedicamento
+teste2 [] = []
+teste2 (x : xs) = quickSort ((teste1 x) ++ (geraPlanoReceituario xs))
+
+teste3 :: [] -> [] -> [(Horario,[Medicamento])]
+
+
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
 geraPlanoReceituario [] = []
 geraPlanoReceituario (x : xs) = quickSort ((teste1 x) ++ (geraPlanoReceituario xs))
