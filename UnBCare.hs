@@ -261,7 +261,7 @@ teste1 :: (Medicamento, [Horario]) -> [(Horario, [Medicamento])]
 teste1 (_, []) = []
 teste1 (m, h : tail) = (h, [m]) : (teste1 (m, tail))
 
-
+teste2 :: Receituario -> (Horario,Medicamento)
 teste2 [] = []
 teste2 (x : xs) = quickSort ((teste1 x) ++ (teste2 xs))
 
