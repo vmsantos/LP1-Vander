@@ -244,9 +244,9 @@ testeMap :: Receituario -> Horario -> Medicamento -> [(Horario, [Medicamento])]
 testeMap r h m = map (\ x -> if (fst x) == h  then (h, quickSort(m:(snd x))) else x) (teste2 r)
 
 remDup :: Eq a => [a] -> [a]
-remDup = foldl (\seen x -> if x `elem` seen
-                                      then seen
-                                      else seen ++ [x]) []
+remDup = foldl (\memo x -> if x `elem` memo
+                                      then memo
+                                      else memo ++ [x]) []
 
 listaHorarios :: Receituario -> [Horario]
 listaHorarios r = remDup (quickSort(concat(segundaColuna r)))
