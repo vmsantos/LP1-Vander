@@ -255,7 +255,7 @@ remDup =
 retornaMedHorario :: Horario -> [(Horario, Medicamento)] -> [Medicamento]
 retornaMedHorario _ [] = []
 retornaMedHorario n ((h,m):tail)
-   | h == n = m : (retornaMedHorario tail)
+   | h == n = m : (retornaMedHorario n tail)
 
 listaHorarios :: Receituario -> [Horario]
 listaHorarios r = remDup (quickSort (concat (segundaColuna r)))
