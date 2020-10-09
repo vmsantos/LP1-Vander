@@ -248,8 +248,7 @@ teste1 :: [(Medicamento,[Horario])] -> [(Horario,[Medicamento])]
 teste1 [(m,[h])] = []
 
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
-geraPlanoReceituario r 
-   | not (receituarioValido r) = error "receituario inválido"
+geraPlanoReceituario [] = []
 
 {- QUESTÃO 8  VALOR: 1,0 ponto
 
