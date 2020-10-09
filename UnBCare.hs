@@ -243,13 +243,13 @@ type PlanoMedicamento = [(Horario,[Medicamento])]
 testeMap :: Receituario -> Horario -> Medicamento -> [(Horario, [Medicamento])]
 testeMap r h m = map (\ x -> if (fst x) == h  then (h, quickSort(m:(snd x))) else x) (teste2 r)
 
-removeDuplicates :: Eq a => [a] -> [a]
-removeDuplicates = foldl (\seen x -> if x `elem` seen
+remDup :: Eq a => [a] -> [a]
+remDup = foldl (\seen x -> if x `elem` seen
                                       then seen
                                       else seen ++ [x]) []
 
 listaHorarios :: Receituario -> [Horario]
-listaHorarios r = removeDuplicates (quickSort(concat(segundaColuna r)))
+listaHorarios r = remDup (quickSort(concat(segundaColuna r)))
 
 teste1 :: (Medicamento,[Horario]) -> [(Horario,[Medicamento])]
 teste1 (_, []) = []
