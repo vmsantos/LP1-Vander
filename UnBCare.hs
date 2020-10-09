@@ -302,7 +302,7 @@ percorreLista2 [] _ = []
 percorreLista2 (h:hs) r = (h,retornaMedHorario2 h (teste22 r)) : percorreLista2 hs r
 
 geraReceituarioPlano :: PlanoMedicamento -> Receituario
-geraReceituarioPlano [] = []
+geraReceituarioPlano p = percorreLista2 (listaMeds p) p
 
 {-  QUESTÃO 9 VALOR: 1,0 ponto
 
