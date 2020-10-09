@@ -260,7 +260,7 @@ geraPlanoReceituario [] = []
 
 {- QUESTÃO 8  VALOR: 1,0 ponto
 
- Defina a função "geraReceituarioPlano", cujo tipo é dado abaixo e que retorna um receituário válido a partir de um
+ Defina a função "geraReceituarioPlano", cujo tipo  é dado abaixo e que retorna um receituário válido a partir de um
  plano de medicamentos válido.
  Dica: Existe alguma relação de simetria entre o receituário e o plano de medicamentos? Caso exista, essa simetria permite
  compararmos a função geraReceituarioPlano com a função geraPlanoReceituario ? Em outras palavras, podemos definir
