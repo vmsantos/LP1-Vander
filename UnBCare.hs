@@ -286,8 +286,8 @@ retornaMedHorario2 n ((h,m):tail)
    | h == n = m : (retornaMedHorario2 n tail)
    | otherwise = retornaMedHorario2 n tail
 
-listaHorarios :: Receituario -> [Horario]
-listaHorarios r = remDup (quickSort (concat (segundaColuna r)))
+listaMeds :: Receituario -> [Horario]
+listaMeds r = remDup (quickSort (concat (segundaColuna r)))
 
 teste1 :: (Medicamento, [Horario]) -> [(Horario, Medicamento)]
 teste1 (_, []) = []
