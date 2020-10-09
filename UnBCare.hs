@@ -222,7 +222,7 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
-plantaoTeste :: Plantao -> [Cuidado]
+plantaoTeste :: Plantao -> [[Cuidado]]
 plantaoTeste [] = []
 plantaoTeste p = [snd x | x <- p]
 
