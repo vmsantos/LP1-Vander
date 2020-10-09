@@ -231,9 +231,14 @@ plantaoValido plantao
   retorne um plano de medicamento válido.
 
   Dica: enquanto o receituário lista os horários que cada remédio deve ser tomado, o plano de medicamentos  é uma
-  disposição ordenada por horário de todos os remédios que devem ser tomados pelo paciente em um certo horário.
+  disposição ordenada por horário de todos os remédios que devem ser tomados pelo paciente em um certo horário. testando auto commit
+
+type Receituario = [(Medicamento,[Horario])]
+type PlanoMedicamento = [(Horario,[Medicamento])]
 
 -}
+-- map (\ x -> if (fst x) == "med1"  then ("med1", quickSort((snd x)++[11])) else x) receituarioteste
+
 removeDuplicates :: Eq a => [a] -> [a]
 removeDuplicates = foldl (\seen x -> if x `elem` seen
                                       then seen
