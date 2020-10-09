@@ -250,7 +250,7 @@ teste1 (m, h : tail) = (h, [m]) : (teste1 (m, tail))
 
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
 geraPlanoReceituario [] = []
-geraPlanoReceituario (x : xs) = (teste1 x) ++ (geraPlanoReceituario xs)
+geraPlanoReceituario (x : xs) = quickSort ((teste1 x) ++ (geraPlanoReceituario xs))
 
 {- QUESTÃO 8  VALOR: 1,0 ponto
 
