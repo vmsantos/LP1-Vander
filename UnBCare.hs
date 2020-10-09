@@ -224,7 +224,7 @@ plantaoValido plantao
 
 plantaoTeste :: Plantao -> [Cuidado]
 --plantaoTeste [] = False
-plantaoTeste (_,b) = b
+plantaoTeste [(_,b)] = b
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
