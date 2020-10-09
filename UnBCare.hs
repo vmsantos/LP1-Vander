@@ -253,7 +253,7 @@ teste2 [] = []
 teste2 (x : xs) = quickSort ((teste1 x) ++ (teste2 xs))
 
 teste4 :: Receituario -> [a]
-teste4 (r:rs) = quickSort (concat(snd r)) +
+teste4 (r:rs) = (snd r) ++ rs
 
 teste3 :: Receituario -> PlanoMedicamento -> [(Horario,[Medicamento])]
 teste3 a b = [] 
