@@ -286,7 +286,7 @@ retornaHorMedicamento n ((h,m):tail)
    | h == n = m : (retornaHorMedicamento n tail)
    | otherwise = retornaHorMedicamento n tail
 
-listaMeds :: Receituario -> [Medicamento]
+listaMeds :: PlanoMedicamento -> [Medicamento]
 listaMeds r = remDup (quickSort (concat (segundaColuna r)))
 
 teste11 :: (Horario, [Medicamento]) -> [(Medicamento, Horario)]
