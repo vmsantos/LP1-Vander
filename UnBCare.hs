@@ -264,7 +264,7 @@ geraPlanoReceituario [] = []
  plano de medicamentos válido.
  Dica: Existe alguma relação de simetria entre o receituário e o plano de medicamentos? Caso exista, essa simetria permite
  compararmos a função geraReceituarioPlano com a função geraPlanoReceituario ? Em outras palavras, podemos definir
- geraReceituarioPlano com base em geraPlanoReceituario ?
+ geraReceituarioPlano com base em geraPlanoReceituario?
 
 -}
 
