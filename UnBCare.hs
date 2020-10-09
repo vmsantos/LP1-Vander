@@ -246,7 +246,7 @@ removeDuplicates = foldl (\seen x -> if x `elem` seen
 
 
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
-geraPlanoReceituario = undefined
+geraPlanoReceituario [] = undefined
 
 {- QUESTÃO 8  VALOR: 1,0 ponto
 
