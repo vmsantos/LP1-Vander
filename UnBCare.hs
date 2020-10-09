@@ -281,7 +281,7 @@ geraPlanoReceituario r = percorreLista (listaHorarios r) r
 -}
 
 geraReceituarioPlano :: PlanoMedicamento -> Receituario
-geraReceituarioPlano = undefined
+geraReceituarioPlano [] = []
 
 {-  QUESTÃO 9 VALOR: 1,0 ponto
 
