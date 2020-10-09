@@ -222,9 +222,9 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
-plantaoTeste :: Plantao -> Cuidado
+plantaoTeste :: Plantao -> [Cuidado]
 --plantaoTeste [] = False
-plantaoTeste ((_,b):tail) = b:(plantaoTeste tail)
+plantaoTeste ((_,b):tail) = b : (plantaoTeste tail)
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
