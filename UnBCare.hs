@@ -245,6 +245,7 @@ removeDuplicates = foldl (\seen x -> if x `elem` seen
                                       else seen ++ [x]) []
 
 teste1 :: (Medicamento,[Horario]) -> [(Horario,[Medicamento])]
+teste1 (_, []) = []
 teste1 (m, h : tail) = (h, [m]) : (teste1 (m, tail))
 
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
