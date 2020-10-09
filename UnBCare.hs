@@ -297,7 +297,7 @@ teste22 :: Receituario -> [(Medicamento, Horario)]
 teste22 [] = []
 teste22 (h : tail) = quickSort (((teste11 h)) ++ (teste22 tail)) 
 
-percorreLista2 :: [Medicamento] -> Receituario -> PlanoMedicamento 
+percorreLista2 :: [Medicamento] -> PlanoMedicamento -> Receituario 
 percorreLista2 [] _ = []
 percorreLista2 (h:hs) r = (h,retornaHorMedicamento h (teste22 r)) : percorreLista2 hs r
 
