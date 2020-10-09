@@ -249,7 +249,7 @@ teste1 [(m,[h])] = []
 
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
 geraPlanoReceituario r 
-   | not (receituarioValido r) = []
+   | not (receituarioValido r) = error "receituario inválido"
 
 {- QUESTÃO 8  VALOR: 1,0 ponto
 
