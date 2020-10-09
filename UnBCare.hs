@@ -280,24 +280,24 @@ geraPlanoReceituario r = percorreLista (listaHorarios r) r
 
 -}
 
-retornaMeds :: Horario -> [(Horario, Medicamento)] -> [Medicamento]
+retornaMeds :: Medicamento -> [(Medicamento, Horario)] -> [Horario]
 retornaMeds _ [] = []
 retornaMeds n ((h,m):tail)
    | h == n = m : (retornaMeds n tail)
    | otherwise = retornaMeds n tail
 
-listaMeds :: Receituario -> [Horario]
+listaMeds :: Receituario -> [Medicamento]
 listaMeds r = remDup (quickSort (concat (segundaColuna r)))
 
-teste11 :: (Medicamento, [Horario]) -> [(Horario, Medicamento)]
+teste11 :: (Horario, [Medicamento]) -> [(Medicamento, Horario)]
 teste11 (_, []) = []
 teste11 (m, h : tail) = (h, m) : (teste11 (m, tail))
 
-teste22 :: Receituario -> [(Horario, Medicamento)]
+teste22 :: Receituario -> [(Medicamento, Horario)]
 teste22 [] = []
 teste22 (h : tail) = quickSort (((teste11 h)) ++ (teste22 tail)) 
 
-percorreLista2 :: [Horario] -> Receituario -> PlanoMedicamento 
+percorreLista2 :: [Medicamento] -> Receituario -> PlanoMedicamento 
 percorreLista2 [] _ = []
 percorreLista2 (h:hs) r = (h,retornaMeds h (teste22 r)) : percorreLista2 hs r
 
