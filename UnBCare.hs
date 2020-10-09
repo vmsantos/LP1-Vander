@@ -224,7 +224,7 @@ plantaoValido plantao
 
 plantaoTeste :: Plantao -> [Cuidado]
 plantaoTeste [] = []
-plantaoTeste p = segundaColuna p
+plantaoTeste p = [snd x | x <- p]
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
