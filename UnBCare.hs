@@ -233,6 +233,7 @@ plantaoValido plantao
 
 testeMap :: Receituario -> Horario -> Medicamento -> [(Horario, [Medicamento])]
 testeMap r h m = map (\x -> if (fst x) == h then (h, quickSort (m : (snd x))) else x) (teste2 r)
+
 -}
 
 remDup :: Eq a => [a] -> [a]
