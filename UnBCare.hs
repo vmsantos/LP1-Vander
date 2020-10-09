@@ -240,7 +240,7 @@ type PlanoMedicamento = [(Horario,[Medicamento])]
 -- map (\ x -> if (fst x) == "med1"  then ("med1", quickSort(11:(snd x))) else x) receituarioteste
 
 testeMap :: Receituario -> Horario -> Medicamento -> [(Horario, [Medicamento])]
-testeMap r m h = map (\ x -> if (fst x) == m  then (m, quickSort(h:(snd x))) else x) (teste2 r)
+testeMap r h m = map (\ x -> if (fst x) == m  then (m, quickSort(h:(snd x))) else x) (teste2 r)
 
 removeDuplicates :: Eq a => [a] -> [a]
 removeDuplicates = foldl (\seen x -> if x `elem` seen
