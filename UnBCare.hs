@@ -231,13 +231,6 @@ plantaoValido plantao
   Dica: enquanto o receituário lista os horários que cada remédio deve ser tomado, o plano de medicamentos  é uma
   disposição ordenada por horário de todos os remédios que devem ser tomados pelo paciente em um certo horário. testando auto commit
 
-type Receituario = [(Medicamento,[Horario])]
-type PlanoMedicamento = [(Horario,[Medicamento])]
-
--}
--- map (\ x -> if (fst x) == "med1"  then ("med1", quickSort(11:(snd x))) else x) receituarioteste
-
-{-
 testeMap :: Receituario -> Horario -> Medicamento -> [(Horario, [Medicamento])]
 testeMap r h m = map (\x -> if (fst x) == h then (h, quickSort (m : (snd x))) else x) (teste2 r)
 -}
