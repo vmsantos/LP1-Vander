@@ -224,7 +224,7 @@ plantaoValido plantao
 
 plantaoTeste :: Plantao -> Cuidado
 --plantaoTeste [] = False
-plantaoTeste ((_,b):tail) = b
+plantaoTeste ((_,b):tail) = b:(plantaoTeste tail)
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
