@@ -236,10 +236,12 @@ type PlanoMedicamento = [(Horario,[Medicamento])]
 
 -}
 -- map (\ x -> if (fst x) == "med1"  then ("med1", quickSort(11:(snd x))) else x) receituarioteste
+
 {-
 testeMap :: Receituario -> Horario -> Medicamento -> [(Horario, [Medicamento])]
 testeMap r h m = map (\x -> if (fst x) == h then (h, quickSort (m : (snd x))) else x) (teste2 r)
 -}
+
 remDup :: Eq a => [a] -> [a]
 remDup =
   foldl
@@ -261,7 +263,7 @@ teste1 :: (Medicamento, [Horario]) -> [(Horario, Medicamento)]
 teste1 (_, []) = []
 teste1 (m, h : tail) = (h, m) : (teste1 (m, tail))
 
-teste2 :: Receituario -> [(Horario, Medicamento)]
+teste2 :: [(Medicamento, [Horario])] -> [(Horario, Medicamento)]
 teste2 [] = []
 teste2 (x : xs) = quickSort ((teste1 x) ++ (teste2 xs))
 
