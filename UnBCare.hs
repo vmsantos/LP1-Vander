@@ -289,13 +289,13 @@ retornaMedHorario2 n ((h,m):tail)
 listaMeds :: Receituario -> [Horario]
 listaMeds r = remDup (quickSort (concat (segundaColuna r)))
 
-teste1 :: (Medicamento, [Horario]) -> [(Horario, Medicamento)]
-teste1 (_, []) = []
-teste1 (m, h : tail) = (h, m) : (teste1 (m, tail))
+teste11 :: (Medicamento, [Horario]) -> [(Horario, Medicamento)]
+teste11 (_, []) = []
+teste11 (m, h : tail) = (h, m) : (teste11 (m, tail))
 
-teste2 :: Receituario -> [(Horario, Medicamento)]
-teste2 [] = []
-teste2 (h : tail) = quickSort (((teste1 h)) ++ (teste2 tail)) 
+teste22 :: Receituario -> [(Horario, Medicamento)]
+teste22 [] = []
+teste22 (h : tail) = quickSort (((teste11 h)) ++ (teste22 tail)) 
 
 percorreLista :: [Horario] -> Receituario -> PlanoMedicamento 
 percorreLista [] _ = []
