@@ -246,7 +246,7 @@ removeDuplicates = foldl (\seen x -> if x `elem` seen
                                       else seen ++ [x]) []
 
 removeDupa :: [a] -> [a]
-removeDuplicates a = (quickSort(concat(segundaColuna a)))
+removeDupa a = removeDuplicates (quickSort(concat(segundaColuna a)))
 
 teste1 :: (Medicamento,[Horario]) -> [(Horario,[Medicamento])]
 teste1 (_, []) = []
