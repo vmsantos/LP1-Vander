@@ -53,8 +53,8 @@ atualizaQuantidade2 medicamento ((n, m) : tail)
 
 mostraQuantidade :: String -> [(String, Int)] -> Int
 mostraQuantidade medicamento ((n, m) : tail)
-   | medicamento == n = m
-   | otherwise = mostraQuantidade medicamento tail
+  | medicamento == n = m
+  | otherwise = mostraQuantidade medicamento tail
 
 --atualizaQuantidade _ _ [] = []
 
@@ -73,8 +73,8 @@ primeiraColuna2 lst = foldr (\x acc -> (fst x) : acc) [] lst
 comprarMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
 comprarMedicamento medicamento quantidade [] = (medicamento, quantidade) : []
 comprarMedicamento medicamento quantidade estoquemedicamentos
-   | isElem medicamento (primeiraColuna estoquemedicamentos) = atualizaQuantidade medicamento quantidade estoquemedicamentos 
-   | otherwise = (medicamento, quantidade) : estoquemedicamentos 
+  | isElem medicamento (primeiraColuna estoquemedicamentos) = atualizaQuantidade medicamento quantidade estoquemedicamentos
+  | otherwise = (medicamento, quantidade) : estoquemedicamentos
 
 {-
    QUESTÃO 2, VALOR: 1,0 ponto
@@ -89,10 +89,10 @@ onde v é o novo estoque.
 tomarMedicamento :: Medicamento -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 tomarMedicamento _ [] = Nothing
 tomarMedicamento medicamento estoquemedicamentos
-   | isElem (medicamento, 0) (estoquemedicamentos) = Nothing
-   | isElem medicamento (primeiraColuna estoquemedicamentos) = Just (atualizaQuantidade2 medicamento estoquemedicamentos)
-   | otherwise = Nothing
-   
+  | isElem (medicamento, 0) (estoquemedicamentos) = Nothing
+  | isElem medicamento (primeiraColuna estoquemedicamentos) = Just (atualizaQuantidade2 medicamento estoquemedicamentos)
+  | otherwise = Nothing
+
 {-
    QUESTÃO 3  VALOR: 1,0 ponto
 
@@ -105,8 +105,8 @@ Se o medicamento não existir, retorne 0.
 consultarMedicamento :: Medicamento -> EstoqueMedicamentos -> Quantidade
 consultarMedicamento _ [] = 0
 consultarMedicamento medicamento estoquemedicamentos
-   | notElem medicamento (primeiraColuna estoquemedicamentos) = 0
-   | otherwise = mostraQuantidade medicamento estoquemedicamentos
+  | notElem medicamento (primeiraColuna estoquemedicamentos) = 0
+  | otherwise = mostraQuantidade medicamento estoquemedicamentos
 
 {-
    QUESTÃO 4  VALOR: 1,0 ponto
@@ -122,11 +122,11 @@ consultarMedicamento medicamento estoquemedicamentos
 -}
 quickSort :: Ord a => [a] -> [a]
 quickSort [] = []
-quickSort (x:xs) = quickSort [e | e <- xs, e < x] ++ [x] ++ quickSort [e | e <- xs, e >= x]
+quickSort (x : xs) = quickSort [e | e <- xs, e < x] ++ [x] ++ quickSort [e | e <- xs, e >= x]
 
 quickSort2 :: Ord a => [a] -> [a]
 quickSort2 [] = []
-quickSort2 (x:xs) = quickSort2 [e | e <- xs, e < x] ++ [x] ++ quickSort2 [e | e <- xs, e > x]
+quickSort2 (x : xs) = quickSort2 [e | e <- xs, e < x] ++ [x] ++ quickSort2 [e | e <- xs, e > x]
 
 calculaDemanda :: Receituario -> [(String, Int)]
 calculaDemanda [] = []
@@ -151,44 +151,42 @@ demandaMedicamentos receituario = quickSort (calculaDemanda receituario)
 
 nub :: (Eq a) => [a] -> [a]
 nub [] = []
-nub (x:xs) = x : nub (filter (\y -> x /= y) xs)
+nub (x : xs) = x : nub (filter (\y -> x /= y) xs)
 
 temDuplicados :: (Ord a) => [a] -> Bool
 temDuplicados xs = length (nub xs) /= length xs
 
-verificaOrdMed :: (Ord a) => [(a,[b])] -> Bool
+verificaOrdMed :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdMed receituario
-   | primeiraColuna receituario == quickSort (primeiraColuna receituario) = True
-   | otherwise = False
+  | primeiraColuna receituario == quickSort (primeiraColuna receituario) = True
+  | otherwise = False
 
-verificaOrdHorario :: (Ord b) => [(a,[b])] -> Bool
+verificaOrdHorario :: (Ord b) => [(a, [b])] -> Bool
 verificaOrdHorario [] = True
 verificaOrdHorario ((_, xs) : tail)
-   | xs == quickSort xs = verificaOrdHorario tail
-   | otherwise = False
+  | xs == quickSort xs = verificaOrdHorario tail
+  | otherwise = False
 
-verificaDupHorario :: (Ord b) => [(a,[b])] -> Bool
+verificaDupHorario :: (Ord b) => [(a, [b])] -> Bool
 verificaDupHorario [] = False
 verificaDupHorario ((_, xs) : tail)
-   | not (temDuplicados xs) = verificaDupHorario tail
-   | otherwise = True
+  | not (temDuplicados xs) = verificaDupHorario tail
+  | otherwise = True
 
-verificaDupMed :: (Ord a) => [(a,[b])] -> Bool
-verificaDupMed receituario = temDuplicados(primeiraColuna receituario)
-   
+verificaDupMed :: (Ord a) => [(a, [b])] -> Bool
+verificaDupMed receituario = temDuplicados (primeiraColuna receituario)
 
 receituarioValido :: Receituario -> Bool
 receituarioValido [] = True
 receituarioValido receituario
-   | sequence [verificaOrdMed, verificaOrdHorario, verificaDupMed, verificaDupHorario] receituario == [True, True, False, False] = True
-   | otherwise = False
-   
+  | sequence [verificaOrdMed, verificaOrdHorario, verificaDupMed, verificaDupHorario] receituario == [True, True, False, False] = True
+  | otherwise = False
 
 planoValido :: PlanoMedicamento -> Bool
 planoValido [] = True
 planoValido planomedico
-   | sequence [verificaOrdMed, verificaOrdHorario, verificaDupMed, verificaDupHorario] planomedico == [True, True, False, False] = True
-   | otherwise = False
+  | sequence [verificaOrdMed, verificaOrdHorario, verificaDupMed, verificaDupHorario] planomedico == [True, True, False, False] = True
+  | otherwise = False
 
 {-
 
@@ -204,25 +202,25 @@ planoValido planomedico
 
  -}
 
-verificaOrdHorario2 :: (Ord a) => [(a,[b])] -> Bool
+verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
-   | primeiraColuna plantao == quickSort (primeiraColuna plantao) = True
-   | otherwise = False
+  | primeiraColuna plantao == quickSort (primeiraColuna plantao) = True
+  | otherwise = False
 
-verificaDupMed2 :: (Ord b) => [(a,[b])] -> Bool
+verificaDupMed2 :: (Ord b) => [(a, [b])] -> Bool
 verificaDupMed2 [] = False
 verificaDupMed2 ((_, xs) : tail)
-   | not (temDuplicados xs) = verificaDupMed2 tail
-   | otherwise = True
+  | not (temDuplicados xs) = verificaDupMed2 tail
+  | otherwise = True
 
-verificaDupHorario2 :: (Ord a) => [(a,[b])] -> Bool
-verificaDupHorario2 plantao = temDuplicados(primeiraColuna plantao)
+verificaDupHorario2 :: (Ord a) => [(a, [b])] -> Bool
+verificaDupHorario2 plantao = temDuplicados (primeiraColuna plantao)
 
 plantaoValido :: Plantao -> Bool
 plantaoValido [] = True
 plantaoValido plantao
-   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
-   | otherwise = False
+  | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
+  | otherwise = False
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
@@ -239,19 +237,23 @@ type PlanoMedicamento = [(Horario,[Medicamento])]
 -}
 -- map (\ x -> if (fst x) == "med1"  then ("med1", quickSort(11:(snd x))) else x) receituarioteste
 
-
 testeMap :: Receituario -> Horario -> Medicamento -> [(Horario, [Medicamento])]
-testeMap r h m = map (\ x -> if (fst x) == h  then (h, quickSort(m:(snd x))) else x) (teste2 r)
+testeMap r h m = map (\x -> if (fst x) == h then (h, quickSort (m : (snd x))) else x) (teste2 r)
 
 remDup :: Eq a => [a] -> [a]
-remDup = foldl (\memo x -> if x `elem` memo
-                                      then memo
-                                      else memo ++ [x]) []
+remDup =
+  foldl
+    ( \memo x ->
+        if x `elem` memo
+          then memo
+          else memo ++ [x]
+    )
+    []
 
 listaHorarios :: Receituario -> [Horario]
-listaHorarios r = remDup (quickSort(concat(segundaColuna r)))
+listaHorarios r = remDup (quickSort (concat (segundaColuna r)))
 
-teste1 :: (Medicamento,[Horario]) -> [(Horario,[Medicamento])]
+teste1 :: (Medicamento, [Horario]) -> [(Horario, [Medicamento])]
 teste1 (_, []) = []
 teste1 (m, h : tail) = (h, [m]) : (teste1 (m, tail))
 
