@@ -239,6 +239,8 @@ type PlanoMedicamento = [(Horario,[Medicamento])]
 -}
 -- map (\ x -> if (fst x) == "med1"  then ("med1", quickSort(11:(snd x))) else x) receituarioteste
 
+testeHorario :: Horario -> PlanoMedicamento
+
 testeMap :: Receituario -> Horario -> Medicamento -> [(Horario, [Medicamento])]
 testeMap r h m = map (\ x -> if (fst x) == h  then (h, quickSort(m:(snd x))) else x) (teste2 r)
 
