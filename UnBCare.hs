@@ -252,7 +252,7 @@ teste2 :: Receituario -> PlanoMedicamento
 teste2 [] = []
 teste2 (x : xs) = quickSort ((teste1 x) ++ (teste2 xs))
 
-teste4 :: Receituario -> [a]
+teste4 :: Receituario -> [b]
 teste4 r = quickSort(concat(segundaColuna r))
 
 teste3 :: Receituario -> PlanoMedicamento -> [(Horario,[Medicamento])]
