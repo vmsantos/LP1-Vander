@@ -249,21 +249,19 @@ remDup =
           else memo ++ [x]
     )
     []
-{-
+
 retornaMedHorario :: h -> [(Horario, [Medicamento])] -> [Medicamento]
 retornaMedHorario h (a,x)
    | h ==  
--}
 
 listaHorarios :: Receituario -> [Horario]
 listaHorarios r = remDup (quickSort (concat (segundaColuna r)))
-
 
 teste1 :: (Medicamento, [Horario]) -> [(Horario, [Medicamento])]
 teste1 (_, []) = []
 teste1 (m, h : tail) = (h, [m]) : (teste1 (m, tail))
 
-teste2 :: Receituario -> [(Horario,Medicamento)]
+teste2 :: Receituario -> PlanoMedicamento
 teste2 [] = []
 teste2 (x : xs) = quickSort ((teste1 x) ++ (teste2 xs))
 
