@@ -257,7 +257,6 @@ teste3 :: [] -> [] -> [(Horario,[Medicamento])]
 
 geraPlanoReceituario :: Receituario -> PlanoMedicamento
 geraPlanoReceituario [] = []
-geraPlanoReceituario (x : xs) = quickSort ((teste1 x) ++ (geraPlanoReceituario xs))
 
 {- QUESTÃO 8  VALOR: 1,0 ponto
 
