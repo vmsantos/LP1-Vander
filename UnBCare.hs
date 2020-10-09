@@ -299,7 +299,7 @@ teste22 (h : tail) = quickSort (((teste11 h)) ++ (teste22 tail))
 
 percorreLista2 :: [Medicamento] -> PlanoMedicamento -> Receituario 
 percorreLista2 [] _ = []
-percorreLista2 (h:hs) r = (h,retornaHorMedicamento h (teste22 r)) : percorreLista2 hs r
+percorreLista2 (h:hs) p = (h,retornaHorMedicamento h (teste22 p)) : percorreLista2 hs p
 
 geraReceituarioPlano :: PlanoMedicamento -> Receituario
 geraReceituarioPlano p = percorreLista2 (listaMeds p) p
