@@ -252,6 +252,40 @@ retornaMedHorario n ((h,m):tail)
    | h == n = m : (retornaMedHorario n tail)
    | otherwise = retornaMedHorario n tail
 
+listaMed :: Receituario -> [Horario]
+listaMed r = remDup (quickSort (concat (segundaColuna r)))
+
+teste11 :: (Medicamento, [Horario]) -> [(Horario, Medicamento)]
+teste11 (_, []) = []
+teste11 (m, h : tail) = (h, m) : (teste11 (m, tail))
+
+teste22 :: Receituario -> [(Horario, Medicamento)]
+teste22 [] = []
+teste22 (h : tail) = quickSort (((teste1 h)) ++ (teste22 tail)) 
+
+percorreLista :: [Horario] -> Receituario -> PlanoMedicamento 
+percorreLista [] _ = []
+percorreLista (h:hs) r = (h,retornaMedHorario h (teste22 r)) : percorreLista hs r
+
+geraPlanoReceituario :: Receituario -> PlanoMedicamento
+geraPlanoReceituario r = percorreLista (listaMed r) r
+
+{- QUESTÃO 8  VALOR: 1,0 ponto
+
+ Defina a função "geraReceituarioPlano", cujo tipo é dado abaixo e que retorna um receituário válido a partir de um
+ plano de medicamentos válido.
+ Dica: Existe alguma relação de simetria entre o receituário e o plano de medicamentos? Caso exista, essa simetria permite
+ compararmos a função geraReceituarioPlano com a função geraPlanoReceituario ? Em outras palavras, podemos definir
+ geraReceituarioPlano com base em geraPlanoReceituario?
+
+-}
+
+retornaHorarioMed :: Horario -> [(Horario, Medicamento)] -> [Medicamento]
+retornaHorarioMed _ [] = []
+retornaHorarioMed n ((h,m):tail)
+   | h == n = m : (retornaHorarioMed n tail)
+   | otherwise = retornaHorarioMed n tail
+
 listaHorarios :: Receituario -> [Horario]
 listaHorarios r = remDup (quickSort (concat (segundaColuna r)))
 
@@ -265,20 +299,7 @@ teste2 (h : tail) = quickSort (((teste1 h)) ++ (teste2 tail))
 
 percorreLista :: [Horario] -> Receituario -> PlanoMedicamento 
 percorreLista [] _ = []
-percorreLista (h:hs) r = (h,retornaMedHorario h (teste2 r)) : percorreLista hs r
-
-geraPlanoReceituario :: Receituario -> PlanoMedicamento
-geraPlanoReceituario r = percorreLista (listaHorarios r) r
-
-{- QUESTÃO 8  VALOR: 1,0 ponto
-
- Defina a função "geraReceituarioPlano", cujo tipo é dado abaixo e que retorna um receituário válido a partir de um
- plano de medicamentos válido.
- Dica: Existe alguma relação de simetria entre o receituário e o plano de medicamentos? Caso exista, essa simetria permite
- compararmos a função geraReceituarioPlano com a função geraPlanoReceituario ? Em outras palavras, podemos definir
- geraReceituarioPlano com base em geraPlanoReceituario?
-
--}
+percorreLista (h:hs) r = (h,retornaHorarioMed h (teste2 r)) : percorreLista hs r
 
 geraReceituarioPlano :: PlanoMedicamento -> Receituario
 geraReceituarioPlano [] = []
