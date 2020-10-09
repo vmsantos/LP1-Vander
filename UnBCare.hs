@@ -270,7 +270,7 @@ teste2 [] = []
 teste2 (h : tail) = quickSort (((teste1 h)) ++ (teste2 tail)) 
 
 percorreLista :: [Horario] -> Receituario -> PlanoMedicamento 
-percorreLista h:hs receituario = (retornaMedHorario h (teste2 receituario)
+percorreLista (h:hs) receituario = (retornaMedHorario h (teste2 receituario)) :: percorreLista hs
 
 geraPlanoReceituario :: [(Medicamento, [Horario])] -> PlanoMedicamento
 geraPlanoReceituario [] = [] 
