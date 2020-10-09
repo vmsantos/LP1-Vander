@@ -252,7 +252,7 @@ remDup =
     )
     []
 
-retornaMedHorario :: h -> [(Horario, M)] -> [Medicamento]
+retornaMedHorario :: Horario -> [(Horario, Medicamento)] -> [Medicamento]
 retornaMedHorario h (a,x)
    | h ==  
 
