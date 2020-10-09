@@ -223,7 +223,7 @@ plantaoValido plantao
   | otherwise = False
 
 plantaoTeste :: Plantao -> [Cuidado]
---plantaoTeste [] = False
+plantaoTeste [] = []
 plantaoTeste [(_,b)] = b
 
 {-
