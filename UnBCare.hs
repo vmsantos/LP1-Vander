@@ -209,7 +209,7 @@ pMedicar (h:tail)
 
 asdteste :: Plantao -> Bool
 asdteste [] = True
-asdteste ((_, (Medicar m)) : tail)
+asdteste ((_, [(Medicar m)]) : tail)
   | [m] == quickSort [m] = asdteste tail
   | otherwise = False
 
