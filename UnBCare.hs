@@ -206,7 +206,7 @@ pMedicar ((Medicar m):tail) = m : pMedicar tail
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar (h:tail)
   | h:tail == [] = []
-  | h == (Comprar c b) = []
+  | h == (Comprar _) = []
   | h == (Medicar m) = m : (pMedicar m)
 
 verificaDupCu :: Plantao -> Bool
