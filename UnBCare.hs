@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts #-}
 module UnBCare where
 
 import ModeloDados
