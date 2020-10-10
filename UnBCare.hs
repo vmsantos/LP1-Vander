@@ -209,7 +209,6 @@ verificaDupCu ((_,cu):tail)
 verifOrdMedicar :: [(a, [Cuidado])] -> Bool
 verifOrdMedicar ((_,c):tail)   
   | pMedicar c == quickSort (pMedicar c)  = verifOrdMedicar tail
-  | otherwise = False
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
