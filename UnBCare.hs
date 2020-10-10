@@ -220,13 +220,13 @@ verifOrdMedicar ((_, c) : tail)
   | otherwise = False
  -}
 
-{- 
+
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
 verifOrdMedicar ((_,c):tail)   
   | pMedicar c == quickSort (pMedicar c)  = verifOrdMedicar tail
   | otherwise = False
- -}
+
  
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
