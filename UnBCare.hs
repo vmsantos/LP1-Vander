@@ -212,10 +212,11 @@ pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar (h:tail)
  -}
 
-intersect :: Eq a => [a] -> [a] -> [a]
-intersect [] _ = []
-intersect (x:xs) l | elem x l = x : intersect xs l
-                   | otherwise = intersect xs l
+intersect :: Eq a => [a] -> [a] -> Bool
+intersect [] _ = False
+intersect (x:xs) l 
+  | elem x l = x : intersect xs l
+  | otherwise = intersect xs l
 
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
