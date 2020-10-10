@@ -206,7 +206,7 @@ pMedicar ((Medicar m):tail) = m : pMedicar tail
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar (h:tail)
 
-{- 
+
 verifOrdMedicar :: [(Horario,[Cuidado])] -> Bool
 verifOrdMedicar [] = True
 verifOrdMedicar ((_, c) : tail)
