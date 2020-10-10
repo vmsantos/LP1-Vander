@@ -206,7 +206,7 @@ verificaDupCu :: Plantao -> Bool
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
 
-verifOrdMedicar :: [(a, [Cuidado])] -> Bool
+verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar ((_,c):tail)   
   | pMedicar c == quickSort (pMedicar c)  = verifOrdMedicar tail
 
