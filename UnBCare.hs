@@ -62,8 +62,8 @@ mostraQuantidade medicamento ((n, m) : tail)
   | medicamento == n = m
   | otherwise = mostraQuantidade medicamento tail
 
-isElem :: Eq a => a -> [a] -> Bool
-isElem x xs = any (== x) xs
+elem :: Eq a => a -> [a] -> Bool
+elem x xs = any (== x) xs
 
 primeiraColuna :: [(a, b)] -> [a]
 primeiraColuna lst = [fst x | x <- lst]
@@ -77,7 +77,7 @@ primeiraColuna2 lst = foldr (\x acc -> (fst x) : acc) [] lst
 comprarMedicamento :: Medicamento -> Quantidade -> EstoqueMedicamentos -> EstoqueMedicamentos
 comprarMedicamento medicamento quantidade [] = (medicamento, quantidade) : []
 comprarMedicamento medicamento quantidade estoquemedicamentos
-  | isElem medicamento (primeiraColuna estoquemedicamentos) = atualizaQuantidade medicamento quantidade estoquemedicamentos
+  | elem medicamento (primeiraColuna estoquemedicamentos) = atualizaQuantidade medicamento quantidade estoquemedicamentos
   | otherwise = (medicamento, quantidade) : estoquemedicamentos
 
 {-
@@ -93,8 +93,8 @@ onde v é o novo estoque.
 tomarMedicamento :: Medicamento -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 tomarMedicamento _ [] = Nothing
 tomarMedicamento medicamento estoquemedicamentos
-  | isElem (medicamento, 0) (estoquemedicamentos) = Nothing
-  | isElem medicamento (primeiraColuna estoquemedicamentos) = Just (atualizaQuantidade2 medicamento estoquemedicamentos)
+  | elem (medicamento, 0) (estoquemedicamentos) = Nothing
+  | elem medicamento (primeiraColuna estoquemedicamentos) = Just (atualizaQuantidade2 medicamento estoquemedicamentos)
   | otherwise = Nothing
 
 {-
