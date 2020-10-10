@@ -215,6 +215,8 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
+pTeste Cuidado = 0
+
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
 
