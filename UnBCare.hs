@@ -204,8 +204,8 @@ pMedicar ((Medicar m):tail) = m : pMedicar tail
 -}
 
 pMedicar :: [Cuidado] -> [Medicamento]
-pMedicar ((Medicar m):tail)
-  | ((Medicar m):tail) == [] = []
+pMedicar h:tail
+  | h == (Medicar m) = []
   | otherwise = m:(pMedicar tail)
 
 verificaDupCu :: Plantao -> Bool
