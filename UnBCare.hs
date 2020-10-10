@@ -207,9 +207,9 @@ pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar (h:tail)
  -}
 
-asdteste :: [(Int,[String])] -> Bool
+asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
-asdteste ((_, (Medicar m):as) : tail)
+asdteste ((_, (Medicar _):as) : tail)
   | (a:as) == (quickSort (a:as)) = asdteste tail
   | otherwise = False
 
