@@ -202,6 +202,11 @@ pMedicar [] = []
 pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
 
+pComprar :: [Cuidado] -> [Medicamento]
+pComprar [] = []
+pComprar ((Comprar _ _):_) = []
+pComprar ((Medicar m):tail) = m : pComprar tail
+
 {- 
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar (h:tail)
@@ -212,7 +217,7 @@ asdteste [] = True
 asdteste ((_, h):tail)
   | c == (quickSort c) = asdteste tail
   | otherwise = False
-  where c = [(Medicar _)]
+  where c = case of ()
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = False
