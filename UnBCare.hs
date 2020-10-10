@@ -216,8 +216,8 @@ plantaoValido plantao
   | otherwise = False
 
 pTeste :: Cuidado -> Int
-pTeste (Comprar a b) = 0
-pTeste (Medicar a) = 0
+pTeste (Comprar med qnt) = 0
+pTeste (Medicar med) = 0
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
