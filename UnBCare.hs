@@ -212,13 +212,14 @@ verificaDupCu [(_,[(Comprar _ _)])] = False
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
   | otherwise = True
-
+{- 
 verifOrdMedicar :: [(Horario,[Cuidado])] -> Bool
 verifOrdMedicar [] = True
 verifOrdMedicar ((_, c) : tail)
   | c == quickSort c = verifOrdMedicar tail
   | otherwise = False
-
+ -}
+ 
 {- 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
