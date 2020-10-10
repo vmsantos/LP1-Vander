@@ -213,8 +213,8 @@ verificaDupCu ((_,cu):tail)
 
 dsadsad :: Plantao -> Bool
 dsadsad [(_,[])] = True
-dsadsad ((_,[(Comprar _ _)]):tail)   
-  | [(Comprar _ _)] == quickSort [(Comprar _ _)] = dsadsad tail
+dsadsad ((_,[(Comprar m _)]):tail)   
+  | [(_ m _)] == quickSort [(_ m _)] = dsadsad tail
   | otherwise = False
 
 verifOrdMedicar :: Plantao -> Bool
