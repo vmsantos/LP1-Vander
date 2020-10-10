@@ -206,10 +206,16 @@ pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
 
 verificaDupCu :: Plantao -> Bool
-verificaDupCu [(_,[(Medicar _)])] = False
+verificaDupCu [(_,[(Comprar _ _)])] = False
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
   | otherwise = True
+
+dsadsad :: Plantao -> Bool
+dsadsad [(_,[])] = True
+dsadsad ((_,[(Comprar _ _)]):tail)   
+  | [(Comprar _ _)] == quickSort [(Comprar _ _)] = dsadsad tail
+  | otherwise = False
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [(_,[])] = True
