@@ -209,9 +209,10 @@ pMedicar (h:tail)
 
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
-asdteste ((_, (Medicar m):_) : tail)
-  | [m] == (quickSort [m]) = asdteste tail
+asdteste ((_, h):tail)
+  | c == (quickSort c) = asdteste tail
   | otherwise = False
+  where c = pMedicar h
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = False
