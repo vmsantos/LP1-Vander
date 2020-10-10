@@ -215,7 +215,7 @@ pMedicar (h:tail)
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,c:cs):tail)
-  | c == (Comprar _ _) = 
+  | c == (Comprar _ _) = False
 
 {- 
 verificaDupCu :: Plantao -> Bool
