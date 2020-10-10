@@ -213,7 +213,6 @@ pMedicar (h:tail)
  -}
 
 intersect :: Eq a => [a] -> [a] -> Bool
-intersect [] _ = False
 intersect (x:xs) l 
   | elem x l = False
   | otherwise = intersect xs l
@@ -228,12 +227,12 @@ verifCompraMinistra [] = False
 verifCompraMinistra ((_,c):tail)
   | intersect (pMedicar c) (pComprar c) 
 
-verifOrdMedicar :: Plantao -> Bool
+{- verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
 verifOrdMedicar ((_,c):tail)   
   | pMedicar c == quickSort (pMedicar c) = verifOrdMedicar tail
   | otherwise = False
-
+ -}
  
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
