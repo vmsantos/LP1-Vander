@@ -198,6 +198,7 @@ planoValido planomedico
 pCuidado :: [Cuidado] -> [Medicamento]
 pCuidado ((Comprar m _):tail) = m : pCuidado tail
 pCuidado ((Medicar m):tail) = m : pCuidado tail
+
   
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
