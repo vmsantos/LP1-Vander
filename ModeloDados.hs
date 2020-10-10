@@ -9,7 +9,7 @@ type Receituario = [Prescricao]
 type PlanoMedicamento = [(Horario,[Medicamento])]
 type Plantao = [(Horario,[Cuidado])]
 data Cuidado = Comprar Medicamento Quantidade |
-               Medicar Medicamento
+               Medicar Medicamento deriving (Eq, Ord)
 
 
 instance Show Cuidado where
