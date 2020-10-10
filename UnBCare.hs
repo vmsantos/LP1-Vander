@@ -215,7 +215,7 @@ pMedicar (h:tail)
 intersect :: Eq a => [a] -> [a] -> Bool
 intersect [] _ = False
 intersect (x:xs) l 
-  | elem x l = x : intersect xs l
+  | elem x l = False
   | otherwise = intersect xs l
 
 asdteste :: [(Int,[Cuidado])] -> Bool
