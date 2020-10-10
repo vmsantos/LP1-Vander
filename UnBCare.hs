@@ -207,10 +207,10 @@ pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar (h:tail)
  -}
 
-verifOrdMedicar :: [(Horario,[Cuidado])] -> Bool
-verifOrdMedicar [] = True
-verifOrdMedicar ((_, c) : tail)
-  | c == quickSort c = verifOrdMedicar tail
+asdteste :: [(Horario,[Cuidado])] -> Bool
+asdteste [] = True
+asdteste ((_, c) : tail)
+  | c == quickSort c = asdteste tail
   | otherwise = False
 
 
