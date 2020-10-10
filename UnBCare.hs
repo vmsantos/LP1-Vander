@@ -200,10 +200,12 @@ pCuidado [] = []
 pCuidado ((Comprar m _):tail) = m : pCuidado tail
 pCuidado ((Medicar m):tail) = m : pCuidado tail
 
+{-
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
 pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
+-}
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [(_,[(Comprar _ _)])] = False
@@ -211,18 +213,20 @@ verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
   | otherwise = True
 
-dsadsad :: Plantao -> Bool
-dsadsad [(_,[])] = True
-dsadsad ((_,[(Comprar m _)]):tail)   
-  | [m] == quickSort [m] = dsadsad tail
+verifOrdMedicar :: Plantao -> Bool
+verifOrdMedicar [(_,[])] = True
+verifOrdMedicar ((_,[(Comprar m _)]):tail)   
+  | [m] == quickSort [m] = verifOrdMedicar tail
   | otherwise = False
 
+{- 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
 verifOrdMedicar ((_,c):tail)   
   | pMedicar c == quickSort (pMedicar c)  = verifOrdMedicar tail
   | otherwise = False
-
+ -}
+ 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
   | primeiraColuna plantao == quickSort (primeiraColuna plantao) = True
