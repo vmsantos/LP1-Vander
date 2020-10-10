@@ -220,7 +220,6 @@ verifOrdMedicar [] = True
 verifOrdMedicar ((_,c) : tail)
   | c == quickSort c = verifOrdMedicar tail
   | otherwise = False
-  where c = [(Medicar _)]
 
 {- 
 verifOrdMedicar :: Plantao -> Bool
