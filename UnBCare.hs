@@ -203,11 +203,9 @@ verificaDupCu :: Plantao -> Bool
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
 
-verifOrdMedicar :: (Ord a) => [(a, [b])] -> Bool
-verifOrdMedicar receituario
-  | primeiraColuna receituario == quickSort (primeiraColuna receituario) = True
-  | otherwise = False
-  
+verifOrdMedicar :: [(a, [Cuidado])] -> Bool
+verifOrdMedicar ((_,c):tail)
+  | pCuidado c == quickSort (pCuidado c)  = verifOrdMedicar tail
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
