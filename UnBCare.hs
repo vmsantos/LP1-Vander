@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveDataTypeable #-}
 module UnBCare where
 
 import ModeloDados
@@ -223,7 +224,8 @@ plantaoValido plantao
   | otherwise = False
 
 pTeste :: [Cuidado] -> [Medicamento]
-pTeste h:tail = F
+pTeste h:tail 
+   | 
 
 
 {-
