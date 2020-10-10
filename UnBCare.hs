@@ -215,13 +215,14 @@ pMedicar (h:tail)
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,c:cs):tail)
-  | c == (Comprar _ _) = []
-
+  | c == (Comprar _ _) = 
+    
+{- 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = False
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
-  | otherwise = True
+  | otherwise = True -}
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
