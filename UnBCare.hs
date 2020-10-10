@@ -9,7 +9,7 @@ import ModeloDados
       Plantao,
       Quantidade,
       Receituario )
-import Data.Data
+import Data.Data(Distribution.Types.PackageVersionConstraint)
 
 {-
 
