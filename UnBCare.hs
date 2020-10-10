@@ -209,6 +209,7 @@ verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = True
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
+  | otherwise = False
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [(_,[])] = True
