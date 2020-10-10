@@ -217,7 +217,6 @@ asdteste [] = True
 asdteste ((_, h):tail)
   | c == (quickSort c) = asdteste tail
   | otherwise = False
-  where c = case of ()
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = False
