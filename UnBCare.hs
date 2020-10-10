@@ -218,7 +218,7 @@ dsadsad ((_,[(Comprar m _)]):tail)
   | otherwise = False
 
 verifOrdMedicar :: Plantao -> Bool
-verifOrdMedicar [(_,[])] = True
+verifOrdMedicar [] = True
 verifOrdMedicar ((_,c):tail)   
   | pMedicar c == quickSort (pMedicar c)  = verifOrdMedicar tail
   | otherwise = False
