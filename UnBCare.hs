@@ -196,7 +196,6 @@ planoValido planomedico
  -}
 
 verificaMedicar :: Cuidado -> Medicamento
-verificaMedicar (Comprar med _) = med
 verificaMedicar (Medicar med) = med
 
 verificaDupCompraMedicar :: Cuidado -> Medicamento
