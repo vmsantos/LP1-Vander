@@ -2,6 +2,7 @@
 module UnBCare where
 
 import ModeloDados
+import Data.Data ()
 
 {-
 
