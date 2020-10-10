@@ -217,7 +217,7 @@ verificaDupCu ((_,cu):tail)
 
 verifOrdMedicar :: [(Horario,[Cuidado])] -> Bool
 verifOrdMedicar [] = True
-verifOrdMedicar ((_,c) : tail)
+verifOrdMedicar ((_, c) : tail)
   | c == quickSort c = verifOrdMedicar tail
   | otherwise = False
 
