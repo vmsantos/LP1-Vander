@@ -206,10 +206,10 @@ pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
 
 verificaDupCu :: Plantao -> Bool
-verificaDupCu [] = True
+verificaDupCu [] = False
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
-  | otherwise = False
+  | otherwise = True
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [(_,[])] = True
