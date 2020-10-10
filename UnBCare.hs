@@ -222,8 +222,8 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
-pTeste :: Cuidado -> Bool
-pTeste c = False
+pTeste :: [Cuidado] -> [Medicamento]
+pTeste h:tail = F
 
 
 {-
