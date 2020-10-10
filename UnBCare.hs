@@ -213,6 +213,7 @@ pMedicar (h:tail)
  -}
 
 intersect :: Eq a => [a] -> [a] -> Bool
+intersect [] _ = False
 intersect (x:xs) l 
   | elem x l = True
   | otherwise = intersect xs l
