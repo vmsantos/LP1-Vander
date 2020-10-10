@@ -222,12 +222,12 @@ asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,(Medicar m):cs):tail)
   | m == quickSort m = asdteste tail
-{- 
+
 verifCompraMinistra :: Plantao -> Bool
 verifCompraMinistra [] = False
 verifCompraMinistra ((_,c):tail)
   | intersect (pMedicar c) (pComprar c) 
- -}
+
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
 verifOrdMedicar ((_,c):tail)   
