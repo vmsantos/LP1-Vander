@@ -217,8 +217,8 @@ verificaDupCu ((_,cu):tail)
 
 verifOrdMedicar :: [(Horario,[Cuidado])] -> Bool
 verifOrdMedicar [] = True
-verifOrdMedicar ((_,[Medicar m]) : tail)
-  | ((_,[m]) == (_,[m]) = verifOrdMedicar tail
+verifOrdMedicar ((a,[Medicar m]) : tail)
+  | ((a,[m]) == (a,[m]) = verifOrdMedicar tail
   | otherwise = False
 
 {- 
