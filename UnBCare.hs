@@ -209,8 +209,8 @@ pMedicar (h:tail)
 
 asdteste :: [(Int,[String])] -> Bool
 asdteste [] = True
-asdteste ((_, c) : tail)
-  | c == (quickSort c) = asdteste tail
+asdteste ((_, [c]) : tail)
+  | [c] == (quickSort [c]) = asdteste tail
   | otherwise = False
 
 verificaDupCu :: Plantao -> Bool
