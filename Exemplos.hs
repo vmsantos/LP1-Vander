@@ -89,7 +89,7 @@ plantaoInvalido2 = [(6,[Medicar m2, Medicar m8])
 plantaoInvalido3 :: Plantao
 plantaoInvalido3 = [(6,[Medicar m8, Medicar m2])
                    ,(8,[Medicar m9, Medicar m1])
-                   ,(17,[Medicar m1, Comprar m1 30])
+                   ,(17,[Medicar m1, Comprar m2 30])
                    ,(22,[Medicar m3])]
 
 plantaoInvalido4 :: Plantao
