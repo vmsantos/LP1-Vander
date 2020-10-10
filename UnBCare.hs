@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 module UnBCare where
 
 import ModeloDados
@@ -9,7 +8,6 @@ import ModeloDados
       Plantao,
       Quantidade,
       Receituario )
-import Data.Data(Distribution.Types.PackageVersionConstraint)
 
 {-
 
