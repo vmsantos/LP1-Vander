@@ -209,6 +209,7 @@ pMedicar (h:tail)
 
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
+asdteste ((_, (Comprar _ ):_) : tail)
 asdteste ((_, (Medicar m):_) : tail)
   | [m] == (quickSort [m]) = asdteste tail
   | otherwise = False
