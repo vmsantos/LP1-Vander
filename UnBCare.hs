@@ -223,7 +223,7 @@ plantaoValido plantao
   | otherwise = False
 
 pTeste :: [Cuidado] -> Bool
-pTeste h:tail 
+pTeste (h:tail)
    | h == pTeste tail = False
    | otherwise = pTeste tail
 
