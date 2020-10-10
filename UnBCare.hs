@@ -217,13 +217,11 @@ asdteste [] = True
 asdteste ((_,(Medicar m):cs):tail)
   | m == quickSort m = asdteste tail
 
-{- 
-verificaDupCu :: Plantao -> Bool
-verificaDupCu [] = False
-verificaDupCu ((_,cu):tail)
-  | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
+verifCompraMinistra :: Plantao -> Bool
+verifCompraMinistra [] = False
+verifCompraMinistra ((_,cu):tail)
+  | not (temDuplicados (pCuidado cu)) = verifCompraMinistra tail 
   | otherwise = True 
--}
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
