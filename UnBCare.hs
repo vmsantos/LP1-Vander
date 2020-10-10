@@ -199,7 +199,9 @@ pCuidado :: [Cuidado] -> [Medicamento]
 pCuidado ((Comprar m _):tail) = m : pCuidado tail
 pCuidado ((Medicar m):tail) = m : pCuidado tail
 
-  
+verificaDupCu :: Plantao -> Bool
+verificaDupCu ((_,cu):tail)
+  |   
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
