@@ -222,7 +222,7 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
-sortCuidado :: Ord a => [a] -> [a]
+sortCuidado :: Ord [Cuidado] => [a] -> [a]
 sortCuidado [] = []
 sortCuidado (x : xs) = sortCuidado [e | e <- xs, e < x] ++ [x] ++ sortCuidado [e | e <- xs, e >= x]
 
