@@ -9,6 +9,10 @@ import ModeloDados
       Quantidade,
       Receituario)
 
+data Cuidado = Comprar Medicamento Quantidade |
+               Medicar Medicamento
+               deriving (Eq, Ord)
+
 {-
 
 ██╗░░░██╗███╗░░██╗██████╗░  ░█████╗░░█████╗░██████╗░██████╗
