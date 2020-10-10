@@ -62,9 +62,6 @@ mostraQuantidade medicamento ((n, m) : tail)
   | medicamento == n = m
   | otherwise = mostraQuantidade medicamento tail
 
-elem :: Eq a => a -> [a] -> Bool
-elem x xs = any (== x) xs
-
 primeiraColuna :: [(a, b)] -> [a]
 primeiraColuna lst = [fst x | x <- lst]
 
