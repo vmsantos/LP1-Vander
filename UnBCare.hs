@@ -1,4 +1,3 @@
-{-# LANGUAGE FlexibleContexts #-}
 module UnBCare where
 
 import ModeloDados
@@ -202,6 +201,11 @@ pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
 pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
+
+verificaOrdHorario [] = True
+verificaOrdHorario ((_, xs) : tail)
+  | xs == quickSort xs = verificaOrdHorario tail
+  | otherwise = False
 -}
 
 verificaDupCu :: Plantao -> Bool
