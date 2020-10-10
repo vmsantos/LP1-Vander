@@ -226,7 +226,7 @@ asdteste ((_,(Medicar m):cs):tail)
 verifCompraMinistra :: Plantao -> Bool
 verifCompraMinistra [] = False
 verifCompraMinistra ((_,c):tail)
-  | intersect (pMedicar c) (pComprar c) 
+  | temIntersect (pMedicar c) (pComprar c) 
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
