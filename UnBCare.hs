@@ -203,9 +203,9 @@ pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
 -}
 
-pMedicar :: [Cuidado] -> [Medicamento]
-pMedicar (h:tail)
-  | h == (Medicar a) = []
+-- pMedicar :: [Cuidado] -> [Medicamento]
+-- pMedicar (h:tail)
+--   | h == 
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [(_,[(Comprar _ _)])] = False
