@@ -206,6 +206,7 @@ verificaOrdHorario [] = True
 verificaOrdHorario ((_, xs) : tail)
   | xs == quickSort xs = verificaOrdHorario tail
   | otherwise = False
+  
 -}
 
 verificaDupCu :: Plantao -> Bool
@@ -214,7 +215,7 @@ verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
   | otherwise = True
 
-verifOrdMedicar :: [(Horario,[String])] -> Bool
+verifOrdMedicar :: (Ord b) =>  [(Horario,[b])] -> Bool
 verifOrdMedicar [] = True
 verifOrdMedicar ((_,[(m)]):tail)
   | [m] == quickSort[m] = verifOrdMedicar tail
