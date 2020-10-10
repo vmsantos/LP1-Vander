@@ -212,6 +212,11 @@ pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar (h:tail)
  -}
 
+ intersect :: Eq a => [a] -> [a] -> [a]
+intersect [] _ = []
+intersect (x:xs) l | elem x l = x : intersect xs l
+                   | otherwise = intersect xs l
+
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,(Medicar m):cs):tail)
@@ -220,7 +225,7 @@ asdteste ((_,(Medicar m):cs):tail)
 verifCompraMinistra :: Plantao -> Bool
 verifCompraMinistra [] = False
 verifCompraMinistra ((_,c):tail)
-  | intersect (pMedicar c) (pComprar c)
+  | intersect (pMedicar c) (pComprar c) 
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
