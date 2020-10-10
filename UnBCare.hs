@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts #-}
 module UnBCare where
 
 import ModeloDados
@@ -213,7 +214,7 @@ verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
   | otherwise = True
 
-verifOrdMedicar (Ord Cuidado, Eq Cuidado) :: Plantao -> Bool
+verifOrdMedicar :: (Ord Cuidado, Eq Cuidado) => Plantao -> Bool
 verifOrdMedicar [] = True
 verifOrdMedicar ((_,[(Medicar m)]):tail)
   | [Medicar m] == quickSort [Medicar m] = verifOrdMedicar tail
