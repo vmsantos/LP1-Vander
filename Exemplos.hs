@@ -1,7 +1,23 @@
 module Exemplos where
 
 import ModeloDados
+    ( Cuidado(Medicar, Comprar),
+      EstoqueMedicamentos,
+      Medicamento,
+      PlanoMedicamento,
+      Plantao,
+      Receituario )
 import UnBCare
+    ( comprarMedicamento,
+      tomarMedicamento,
+      consultarMedicamento,
+      demandaMedicamentos,
+      plantaoValido,
+      geraPlanoReceituario,
+      geraReceituarioPlano,
+      executaPlantao,
+      satisfaz,
+      plantaoCorreto )
 
 -- Declarações
 
