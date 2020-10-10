@@ -204,7 +204,7 @@ pMedicar ((Medicar m):tail) = m : pMedicar tail
 -}
 
 pMedicar :: [Cuidado] -> [Medicamento]
-pMedicar h:tail
+pMedicar (h:tail)
   | h == (Medicar m) = []
   | otherwise = m:(pMedicar tail)
 
