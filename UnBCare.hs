@@ -204,7 +204,7 @@ pMedicar ((Medicar m):tail) = m : pMedicar tail
 -}
 
 pMedicar :: [Cuidado] -> [Medicamento]
-pMedicar _
+pMedicar c
   | [] = []
   | ((Comprar _ _):_) = []
   | ((Medicar m):tail) = m : pMedicar tail
