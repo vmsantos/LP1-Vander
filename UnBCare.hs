@@ -1,14 +1,6 @@
 module UnBCare where
 
 import ModeloDados
-    ( EstoqueMedicamentos,
-      Horario,
-      Medicamento,
-      PlanoMedicamento,
-      Plantao,
-      Quantidade,
-      Receituario)
-
 
 {-
 
@@ -222,7 +214,8 @@ plantaoValido [] = True
 plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
-pTeste :: Cuidado -> Int
+
+pTeste :: [Cuidado] -> Int
 pTeste Cuidado = 0
 
 {-
