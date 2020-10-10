@@ -216,7 +216,7 @@ plantaoValido plantao
   | otherwise = False
 
 pTeste :: Cuidado -> Int
-pTeste (Comprar med qnt) = 0
+pTeste (Comprar med _) = 0
 pTeste (Medicar med) = 0
 
 {-
