@@ -195,6 +195,10 @@ planoValido planomedico
 
  -}
 
+pCuidado :: Cuidado -> Medicamento
+pCuidado (Comprar med _) = med
+pCuidado (Medicar med) = med
+
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
   | primeiraColuna plantao == quickSort (primeiraColuna plantao) = True
@@ -215,9 +219,7 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
-pCuidado :: Cuidado -> Medicamento
-pCuidado (Comprar med _) = med
-pCuidado (Medicar med) = med
+
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
