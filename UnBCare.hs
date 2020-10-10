@@ -195,9 +195,9 @@ planoValido planomedico
 
  -}
 
-pCuidado :: Cuidado -> Medicamento
-pCuidado (Comprar med _) = med
-pCuidado (Medicar med) = med
+verificaMedicar :: Cuidado -> Medicamento
+verificaMedicar (Comprar med _) = med
+verificaMedicar (Medicar med) = med
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
