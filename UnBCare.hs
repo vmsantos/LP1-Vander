@@ -47,13 +47,6 @@ Caso o remédio ainda não exista no estoque, o novo estoque a ser retornado dev
 
 -}
 
-{-
-
-step1 :: Eq a => [a] -> [a] -> [Bool]
-step1 xs ys = map checkOne xs
-  where checkOne x =
-
--}
 atualizaQuantidade :: String -> Int -> [(String, Int)] -> [(String, Int)]
 atualizaQuantidade medicamento quantidade ((n, m) : tail)
   | medicamento == n = (n, m + quantidade) : tail
