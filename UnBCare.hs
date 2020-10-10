@@ -199,12 +199,12 @@ pCuidado ((Medicar m):tail) = m : pCuidado tail
 
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
-pMedicar ((Comprar _ _):tail) = [] : pMedicar tail
+pMedicar ((Comprar _ _):tail) = pMedicar tail
 pMedicar ((Medicar m):tail) = m : pMedicar tail
 
 pComprar :: [Cuidado] -> [Medicamento]
 pComprar [] = []
-pComprar ((Medicar _):tail) = [] : pComprar tail
+pComprar ((Medicar _):tail) = pComprar tail
 pComprar ((Comprar m _):tail) = m : pComprar tail
 
 {- 
