@@ -219,9 +219,8 @@ asdteste ((_,(Medicar m):cs):tail)
 
 verifCompraMinistra :: Plantao -> Bool
 verifCompraMinistra [] = False
-verifCompraMinistra ((_,cu):tail)
-  | not (temDuplicados (pCuidado cu)) = verifCompraMinistra tail 
-  | otherwise = True 
+verifCompraMinistra ((_,c):tail)
+  | intersect (pMedicar c) (pComprar c)
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
