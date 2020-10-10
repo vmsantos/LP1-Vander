@@ -209,8 +209,8 @@ pMedicar (h:tail)
 
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
-asdteste ((_, (Medicar _):as) : tail)
-  | (a:as) == (quickSort (a:as)) = asdteste tail
+asdteste ((_, (Medicar m):as) : tail)
+  | [m] == (quickSort [m]) = asdteste tail
   | otherwise = False
 
 verificaDupCu :: Plantao -> Bool
