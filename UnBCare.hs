@@ -215,9 +215,9 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
-pTeste :: Cuidado -> Int
-pTeste (Comprar med _) = 0
-pTeste (Medicar med) = 0
+pTeste :: Cuidado -> Medicamento
+pTeste (Comprar med _) = med
+pTeste (Medicar med) = med
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
