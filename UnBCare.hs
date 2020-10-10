@@ -209,7 +209,6 @@ pMedicar ((Medicar m):tail) = m : pMedicar tail
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = False
-verificaDupCu [(_,[(Comprar _ _)])] = False
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
   | otherwise = True
