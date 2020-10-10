@@ -222,6 +222,11 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
+pTeste :: [Cuidado] -> Bool
+pTeste h:tail 
+   | h == pTeste tail = False
+   | otherwise = pTeste tail
+
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
 
