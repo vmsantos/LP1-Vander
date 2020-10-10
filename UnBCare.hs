@@ -223,11 +223,11 @@ asdteste [] = True
 asdteste ((_,(Medicar m):cs):tail)
   | m == quickSort m = asdteste tail
 
-temCompraMinistra :: Plantao -> Bool
-temCompraMinistra [] = False
-temCompraMinistra ((_,c):tail)
+verifCompraMinistra :: Plantao -> Bool
+verifCompraMinistra [] = False
+verifCompraMinistra ((_,c):tail)
   | temIntersect (pMedicar c) (pComprar c) = True
-  | otherwise = temCompraMinistra tail
+  | otherwise = verifCompraMinistra tail
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
