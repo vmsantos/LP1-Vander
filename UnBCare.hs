@@ -215,11 +215,9 @@ verificaDupCu ((_,cu):tail)
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
-verifOrdMedicar ((_,[(c)]):tail)
+verifOrdMedicar ((_,[(Medicar m)]):tail)
   | [m] == quickSort [m] = verifOrdMedicar tail
-  where c == (Medicar m) = m
-
-  
+  | otherwise = False
 
 {- 
 verifOrdMedicar :: Plantao -> Bool
