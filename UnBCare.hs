@@ -208,6 +208,7 @@ pMedicar ((Medicar m):tail)
   | a == [] = []
   | a == (Comprar _ _) = []
   | a == ((Medicar m):tail) = m : pMedicar tail
+  where a = ((Medicar m):tail)
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [(_,[(Comprar _ _)])] = False
