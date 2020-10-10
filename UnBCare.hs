@@ -206,7 +206,7 @@ verificaDupCu ((_,cu):tail)
 
 verificaOrdMedicar :: (Ord Cuidado) => [(Horario, [Cuidado])] -> Bool
 verificaOrdMedicar ((_,cu):tail) 
-  | cu == quickSort cu = True
+  | cu == quickSort cu = verificaOrdMedicar tail
   | otherwise = False
   
 
