@@ -203,6 +203,12 @@ pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
 -}
 
+pMedicar :: [Cuidado] -> [Medicamento]
+pMedicar
+  | [] = []
+  | ((Comprar _ _):_) = []
+  | ((Medicar m):tail) = m : pMedicar tail
+
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [(_,[(Comprar _ _)])] = False
 verificaDupCu ((_,cu):tail)
