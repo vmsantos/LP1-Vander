@@ -9,7 +9,7 @@ import ModeloDados
       Plantao,
       Quantidade,
       Receituario )
-import Data.Data (toConstr)
+import Data.Data
 
 {-
 
