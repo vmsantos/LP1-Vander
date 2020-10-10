@@ -207,12 +207,10 @@ pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar (h:tail)
  -}
 
-asdteste :: Plantao -> Bool
+asdteste :: [(Int,[String])] -> Bool
 asdteste [] = True
-asdteste ((_, [(Medicar m)]) : tail)
-  | [(m)] == quickSort [(m)] = asdteste tail
-  | otherwise = False
-
+asdteste ((_, [c]) : tail)
+  | 
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = False
