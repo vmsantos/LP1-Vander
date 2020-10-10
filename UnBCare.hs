@@ -202,16 +202,10 @@ pMedicar [] = []
 pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
 
+{- 
+pMedicar :: [Cuidado] -> [Medicamento]
+pMedicar (h:tail)
 
--- pMedicar :: [Cuidado] -> [Medicamento]
--- pMedicar (h:tail)
---   | h == 
-
-verificaDupCu :: Plantao -> Bool
-verificaDupCu [] = False
-verificaDupCu ((_,cu):tail)
-  | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
-  | otherwise = True
 {- 
 verifOrdMedicar :: [(Horario,[Cuidado])] -> Bool
 verifOrdMedicar [] = True
@@ -220,6 +214,11 @@ verifOrdMedicar ((_, c) : tail)
   | otherwise = False
  -}
 
+verificaDupCu :: Plantao -> Bool
+verificaDupCu [] = False
+verificaDupCu ((_,cu):tail)
+  | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
+  | otherwise = True
 
 verifOrdMedicar :: Plantao -> Bool
 verifOrdMedicar [] = True
