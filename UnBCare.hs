@@ -212,6 +212,7 @@ asdteste [] = True
 asdteste ((_, a:as) : tail)
   | (a:as) == (quickSort (a:as)) = asdteste tail
   | otherwise = False
+  where a = (Medicar _)
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = False
