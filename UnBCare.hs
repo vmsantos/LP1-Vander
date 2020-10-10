@@ -199,6 +199,10 @@ verificaMedicar :: Cuidado -> Medicamento
 verificaMedicar (Comprar med _) = med
 verificaMedicar (Medicar med) = med
 
+verificaDupCompraMedicar :: Cuidado -> Medicamento
+verificaDupCompraMedicar (Comprar med _) = med
+verificaDupCompraMedicar (Medicar med) = med
+
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
   | primeiraColuna plantao == quickSort (primeiraColuna plantao) = True
