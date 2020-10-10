@@ -2,6 +2,13 @@
 module UnBCare where
 
 import ModeloDados
+    ( EstoqueMedicamentos,
+      Horario,
+      Medicamento,
+      PlanoMedicamento,
+      Plantao,
+      Quantidade,
+      Receituario )
 import Data.Data ()
 
 {-
