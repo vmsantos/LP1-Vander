@@ -201,7 +201,7 @@ pCuidado ((Medicar m):tail) = m : pCuidado tail
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu ((_,cu):tail)
-  |   
+  | not (temDuplicados cu) = verificaDupCu tail 
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
