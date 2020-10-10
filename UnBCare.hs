@@ -220,8 +220,8 @@ temIntersect (x:xs) l
 
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
-asdteste ((_,(Medicar m):cs):tail)
-  | m == quickSort m = asdteste tail
+asdteste ((_,c:cs):tail)
+  | 
 
 verifCompraMinistra :: Plantao -> Bool
 verifCompraMinistra [] = False
