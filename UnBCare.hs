@@ -247,7 +247,7 @@ verificaDupHorario2 plantao = temDuplicados (primeiraColuna plantao)
 plantaoValido :: Plantao -> Bool
 plantaoValido [] = True
 plantaoValido plantao
-  | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
+  | sequence [verificaOrdHorario2, verificaDupHorario2, verifOrdMedicar, verifCompraMinistra] plantao == [True, False, True, False] = True
   | otherwise = False
 
 
