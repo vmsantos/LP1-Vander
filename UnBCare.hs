@@ -212,7 +212,7 @@ asdteste [] = True
 asdteste ((_, h):tail)
   | c == (quickSort c) = asdteste tail
   | otherwise = False
-  where c = pMedicar h
+  where c = [(Medicar _)]
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu [] = False
