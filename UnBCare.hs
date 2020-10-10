@@ -206,7 +206,7 @@ pMedicar ((Comprar _ _):_) = []
 pMedicar ((Medicar m):tail) = m : pMedicar tail
 
 verificaDupCu :: Plantao -> Bool
-verificaDupCu [] = []
+verificaDupCu [] = True
 verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
 
