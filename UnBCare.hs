@@ -210,8 +210,8 @@ verificaOrdHorario2 plantao
 
 verificaDupMed2 :: (Ord Medicamento) => [Medicamento] -> Bool
 verificaDupMed2 [] = False
-verificaDupMed2 ((_, xs) : tail)
-  | not (temDuplicados xs) = verificaDupMed2 tail
+verificaDupMed2 ((m) : tail)
+  | not (temDuplicados m) = verificaDupMed2 tail
   | otherwise = True
 
 verificaDupHorario2 :: (Ord a) => [(a, [b])] -> Bool
