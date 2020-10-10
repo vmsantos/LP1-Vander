@@ -205,7 +205,7 @@ verificaDupCu ((_,cu):tail)
   | not (temDuplicados (pCuidado cu)) = verificaDupCu tail 
 
 verificaOrdMedicar :: (Ord Cuidado) => [(Horario, [Cuidado])] -> Bool
-verificaOrdMedicar ((_,cu:cus):tail) = False
+verificaOrdMedicar ((_,cu:cus):tail) 
   
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
