@@ -208,12 +208,6 @@ verificaOrdHorario2 plantao
   | primeiraColuna plantao == quickSort (primeiraColuna plantao) = True
   | otherwise = False
 
-verificaDupMed2 :: (Ord Medicamento) => [Medicamento] -> Bool
-verificaDupMed2 [] = False
-verificaDupMed2 ((m) : tail)
-  | not (temDuplicados m) = verificaDupMed2 tail
-  | otherwise = True
-
 verificaDupHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaDupHorario2 plantao = temDuplicados (primeiraColuna plantao)
 
