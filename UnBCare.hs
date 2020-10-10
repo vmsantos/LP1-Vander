@@ -196,8 +196,8 @@ planoValido planomedico
  -}
 
 pCuidado :: Cuidado -> Bool
-pCuidado ((Comprar m _)|Medicar m)
-  | m == "Teste" = True
+pCuidado 
+  | (Comprar m _) == (Comprar "teste" _) = True
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
