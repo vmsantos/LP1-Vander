@@ -62,8 +62,6 @@ mostraQuantidade medicamento ((n, m) : tail)
   | medicamento == n = m
   | otherwise = mostraQuantidade medicamento tail
 
---atualizaQuantidade _ _ [] = []
-
 isElem :: Eq a => a -> [a] -> Bool
 isElem x xs = any (== x) xs
 
