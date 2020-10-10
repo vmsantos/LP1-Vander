@@ -200,7 +200,7 @@ pCuidado ((Comprar m _):tail) = m : pCuidado tail
 pCuidado ((Medicar m):tail) = m : pCuidado tail
 
 pMedicar :: [Cuidado] -> [Medicamento]
-pMedicar ((Medicar m):tail) = m : pCuidado tail
+pMedicar ((Medicar m):tail) = m : pMedicar tail
 
 verificaDupCu :: Plantao -> Bool
 verificaDupCu ((_,cu):tail)
