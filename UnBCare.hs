@@ -205,7 +205,9 @@ verificaDupCu ((_,cu):tail)
 
 verifOrdMedicar :: [(a, [Cuidado])] -> Bool
 verifOrdMedicar ((_,c):tail)
-  | pCuidado c == quickSort (pCuidado c)  = verifOrdMedicar tail
+  | c == (Medicar m) = False
+    
+--  | pCuidado c == quickSort (pCuidado c)  = verifOrdMedicar tail
 
 verificaOrdHorario2 :: (Ord a) => [(a, [b])] -> Bool
 verificaOrdHorario2 plantao
