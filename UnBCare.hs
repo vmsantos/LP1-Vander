@@ -124,7 +124,9 @@ quickSort :: Ord a => [a] -> [a]
 quickSort [] = []
 quickSort (x : xs) = quickSort [e | e <- xs, e < x] ++ [x] ++ quickSort [e | e <- xs, e >= x]
 
-
+quickSort2 :: Ord a => [a] -> [a]
+quickSort2 [] = []
+quickSort2 (x : xs) = quickSort2 [e | e <- xs, e < x] ++ [x] ++ quickSort2 [e | e <- xs, e > x]
 
 calculaDemanda :: Receituario -> [(String, Int)]
 calculaDemanda [] = []
@@ -220,6 +222,9 @@ plantaoValido plantao
   | sequence [verificaOrdHorario2, verificaDupHorario2] plantao == [True, False] = True
   | otherwise = False
 
+sortCuidado :: Ord a => [a] -> [a]
+sortCuidado [] = []
+sortCuidado (x : xs) = sortCuidado [e | e <- xs, e < x] ++ [x] ++ sortCuidado [e | e <- xs, e >= x]
 
 {-
    QUESTÃO 7  VALOR: 1,0 ponto
