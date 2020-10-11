@@ -338,7 +338,7 @@ unmaybe Nothing = mempty
 -}
 unMaybe :: Monoid p => Maybe p -> p
 unMaybe Nothing = mempty
-unMaybe (Just a) = a
+unMaybe (Just v) = v
 
 executaCuidado :: Cuidado -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 executaCuidado _ [] = Nothing
