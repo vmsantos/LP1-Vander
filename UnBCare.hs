@@ -194,7 +194,7 @@ planoValido planomedico
 
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
-asdteste ((_,c:cs):tail)
+asdteste ((_,c):tail)
  
 
 lTeste :: [Cuidado] -> [Medicamento]
