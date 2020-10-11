@@ -349,6 +349,8 @@ executaCuidados [] e = Just e
 executaCuidados (c:cs) e = executaCuidados cs (unMaybe (executaCuidado c e))
 
 executaPlantao :: Plantao -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
+executaPlantao [] [] = Nothing
+executaCuidados [] e = Just e
 executaPlantao ((_,c):ps) e = executaPlantao ps (unMaybe (executaCuidados c e))
 
 {-
