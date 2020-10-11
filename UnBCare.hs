@@ -341,7 +341,7 @@ executaCuidado (Medicar m) e = tomarMedicamento m e
 
 executaCuidados :: [Cuidado] -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 executaCuidados [] _ = Nothing
-executaCuidados c:cs e = (executaCuidado c)
+executaCuidados c:cs e = (executaCuidado c e)
 
 executaPlantao :: Plantao -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 executaPlantao [] = undefined
