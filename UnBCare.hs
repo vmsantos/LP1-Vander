@@ -195,8 +195,9 @@ planoValido planomedico
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,c):tail)
-  | c == quickSort ((filter (\x -> case x of (Comprar _ _) -> True; (Medicar _) -> False) c) >>= (\(Comprar m _) -> [m] )) = asdteste tail
+  | lm == quickSort lm = asdteste tail
   | otherwise = False
+  where lm = (filter (\x -> case x of (Comprar _ _) -> True; (Medicar _) -> False) a) >>= (\(Comprar m _) -> [m] )
  
 
 lTeste :: [Cuidado] -> [Medicamento]
