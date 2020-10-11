@@ -196,7 +196,16 @@ asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,c:cs):tail)
 
+ (\ x zs -> case zs of
+                         [] -> ...
+                         z:zs -> ...
+
  -}
+
+lTeste a = map (\x -> case x of 
+                              (Comprar m _) -> m 
+                              (Medicar _) -> "teste" 
+
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
 pMedicar ((Comprar _ _):tail) = pMedicar tail
