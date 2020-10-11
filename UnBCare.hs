@@ -202,9 +202,9 @@ asdteste ((_,c:cs):tail)
 
  -}
 
-lTeste (a) = zipWith (==) (filter (\x -> case x of 
+lTeste a = (filter (\x -> case x of 
                               (Comprar _ _) -> True 
-                              (Medicar _) -> False) a) a
+                              (Medicar _) -> False) a)
 
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
