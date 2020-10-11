@@ -332,9 +332,6 @@ resultando em novo estoque. A execução consiste em desempenhar, sequencialment
 Caso o estoque acabe antes de terminar a execução do plantão, o resultado da função deve ser Nothing. Caso contrário, o resultado
 deve ser Just v, onde v é o valor final do estoque de medicamentos
 
-unmaybe Nothing = mempty
->>> unmaybe (Just dia) = dia
-
 -}
 unMaybe :: Monoid p => Maybe p -> p
 unMaybe Nothing = mempty
