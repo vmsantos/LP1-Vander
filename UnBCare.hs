@@ -203,9 +203,9 @@ asdteste ((_,c:cs):tail)
  -}
 
 lTeste :: [Cuidado] -> [Medicamento]
-lTeste (a:as) = (\x -> case x of 
-                              (Comprar m _) -> m:as 
-                              (Medicar _) -> as) a
+lTeste (a:as) = map (\x -> case x of 
+                              (Comprar m _) -> m 
+                              (Medicar _) -> m) a
 
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
