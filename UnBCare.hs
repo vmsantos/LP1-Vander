@@ -333,6 +333,7 @@ Caso o estoque acabe antes de terminar a execução do plantão, o resultado da 
 deve ser Just v, onde v é o valor final do estoque de medicamentos
 
 -}
+
 unMaybe :: Monoid p => Maybe p -> p
 unMaybe Nothing = mempty
 unMaybe (Just v) = v
