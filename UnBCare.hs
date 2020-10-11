@@ -191,7 +191,7 @@ planoValido planomedico
 
  -}
 
-pTeste :: [Cuidado] -> [Medicamento]
+pTeste :: Cuidado -> [Medicamento]
 pTeste [] = []
 pTeste ((Comprar _ _):tail) = pTeste tail
 pTeste ((Medicar m):tail) = m : pTeste tail
