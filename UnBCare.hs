@@ -191,6 +191,11 @@ planoValido planomedico
 
  -}
 
+asdteste :: [(Int,[Cuidado])] -> Bool
+asdteste [] = True
+asdteste ((_,c:cs):tail)
+  | 
+
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
 pMedicar ((Comprar _ _):tail) = pMedicar tail
