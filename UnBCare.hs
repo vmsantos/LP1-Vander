@@ -189,17 +189,16 @@ planoValido planomedico
 
  Defina a função "plantaoValido" que verifica as propriedades acima e cujo tipo é dado abaixo:
 
+asdteste :: [(Int,[Cuidado])] -> Bool
+asdteste [] = True
+asdteste ((_,c:cs):tail)
+
 
 lTeste :: [Cuidado] -> [Medicamento]
 lTeste a = (filter (\x -> case x of (Comprar _ _) -> True; (Medicar _) -> False) a) >>= (\(Comprar m _) -> [m] )
 
  -}
 
-asdteste :: [(Int,[String])] -> Bool
-asdteste [] = True
-asdteste ((_,c):tail)
-  | c == quickSort c = asdteste tail
-  | otherwise = False
 
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
