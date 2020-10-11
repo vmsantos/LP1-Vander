@@ -189,7 +189,7 @@ planoValido planomedico
 
  Defina a função "plantaoValido" que verifica as propriedades acima e cujo tipo é dado abaixo:
 
-asdteste :: [(Int,[Cuidado])] -> Bool
+asdteste :: [(Horario,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,c:cs):tail)
 
