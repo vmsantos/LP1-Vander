@@ -195,9 +195,10 @@ lTeste a = (filter (\x -> case x of (Comprar _ _) -> True; (Medicar _) -> False)
 
  -}
 
-asdteste :: [(Int,[Cuidado])] -> Bool
+asdteste :: [(Int,[String])] -> Bool
 asdteste [] = True
-asdteste ((_,c:cs):tail) = (case c of (Medicar m) -> m; (Comprar _ _) -> cs)
+asdteste ((_,c:cs):tail)
+  | xc == "Teste"  = asdteste tail
 
 
 pMedicar :: [Cuidado] -> [Medicamento]
