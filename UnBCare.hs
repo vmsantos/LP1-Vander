@@ -344,6 +344,7 @@ executaCuidado (Comprar m q) e = Just (comprarMedicamento m q e)
 executaCuidado (Medicar m) e = tomarMedicamento m e
 
 executaCuidados :: [Cuidado] -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
+executaCuidados [] [] = Nothing
 executaCuidados [] e = Just e
 executaCuidados (c:cs) e = executaCuidados cs (unMaybe (executaCuidado c e))
 
