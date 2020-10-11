@@ -202,7 +202,7 @@ asdteste ((_,c:cs):tail)
 
  -}
 
-lTeste a = map (\x -> case x of 
+lTeste a = (\x -> case x of 
                               (Comprar m _) -> m 
                               (Medicar _) -> "") a
 
