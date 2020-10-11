@@ -191,16 +191,11 @@ planoValido planomedico
 
  -}
 
-pTeste :: Cuidado -> [Medicamento]
-pTeste [] = []
-pTeste ((Comprar _ _):tail) = pTeste tail
-pTeste ((Medicar m):tail) = m : pTeste tail
-
 {- 
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,c:cs):tail)
-  | filter (\Cuidado -> Medicamento | (Medicar m) = m) c
+
  -}
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
