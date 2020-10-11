@@ -336,7 +336,7 @@ deve ser Just v, onde v é o valor final do estoque de medicamentos
 
 executaCuidado :: Cuidado -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 executaCuidado _ [] = Nothing
-executaCuidado (Comprar m q) e = comprarMedicamento m q e
+executaCuidado (Comprar m q) e = Just (comprarMedicamento m q e)
 
 executaPlantao :: Plantao -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 executaPlantao [] = undefined
