@@ -335,7 +335,7 @@ deve ser Just v, onde v é o valor final do estoque de medicamentos
 -}
 
 executaPlantao :: Plantao -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
-executaPlantao (h,c:cs):ps estoqueinicial = undefined
+executaPlantao [] = undefined
 
 {-
 QUESTÃO 10 VALOR: 1,0 ponto
