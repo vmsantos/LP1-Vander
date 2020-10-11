@@ -191,16 +191,11 @@ planoValido planomedico
 
  -}
 
-{- 
+
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,c:cs):tail)
-
- (\ x zs -> case zs of
-                         [] -> ...
-                         z:zs -> ...
-
- -}
+ 
 
 lTeste :: [Cuidado] -> [Medicamento]
 lTeste a = (filter (\x -> case x of (Comprar _ _) -> True; (Medicar _) -> False) a) >>= (\(Comprar m _) -> [m] )
