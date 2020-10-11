@@ -366,7 +366,7 @@ juntamente com ministrar medicamento.
 -}
 
 satisfaz :: Plantao -> PlanoMedicamento -> EstoqueMedicamentos -> Bool
-satisfaz = undefined
+satisfaz p _ e = (executaPlantao p e)
 
 {-
 
