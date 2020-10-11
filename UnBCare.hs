@@ -364,6 +364,7 @@ Note que alguns cuidados podem ser comprar medicamento e que eles podem ocorrer 
 juntamente com ministrar medicamento.
 
 -}
+
 verifPlantaoPlano :: Plantao -> PlanoMedicamento -> Bool
 verifPlantaoPlano [] [] = True
 verifPlantaoPlano ((h,c):ps) ((h2,m):pms)
@@ -373,7 +374,7 @@ verifPlantaoPlano ((h,c):ps) ((h2,m):pms)
 
 satisfaz :: Plantao -> PlanoMedicamento -> EstoqueMedicamentos -> Bool
 satisfaz p _ e = ((executaPlantao p e) /= Nothing)
---satisfaz p:ps pm:pms _ = 
+satisfaz p m _ = verifPlantaoPlano p m
 
 {-
 
