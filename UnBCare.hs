@@ -365,6 +365,7 @@ juntamente com ministrar medicamento.
 
 -}
 verifPlantaoPlano :: Plantao -> PlanoMedicamento -> Bool
+verifPlantaoPlano [] [] = True
 verifPlantaoPlano ((h,c):ps) ((h2,m):pms)
   | h /= h2 = False
   | (pMedicar c) /= m = False
