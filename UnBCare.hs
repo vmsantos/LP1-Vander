@@ -188,16 +188,16 @@ planoValido planomedico
  3. Para cada horário, as ocorrências de Medicar estão ordenadas lexicograficamente.
 
  Defina a função "plantaoValido" que verifica as propriedades acima e cujo tipo é dado abaixo:
-
+[x | x <- xs, p x]
  -}
 
 
 asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
-asdteste ((_,c):tail)
-  | lm == quickSort lm = asdteste tail
+asdteste ((_,c:cs):tail)
+  | ((\x -> case x of (Medicar _) -> True; (Comprar _ _) -> False) c)
   | otherwise = False
-  where lm = (filter (\x -> case x of (Medicar _) -> True; (Comprar _ _) -> False) c) >>= (\(Medicar m) -> [m] )
+
  
 
 lTeste :: [Cuidado] -> [Medicamento]
