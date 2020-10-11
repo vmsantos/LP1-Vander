@@ -190,10 +190,11 @@ planoValido planomedico
  Defina a função "plantaoValido" que verifica as propriedades acima e cujo tipo é dado abaixo:
 
  -}
-Testando :: [Cuidado] -> [Medicamento]
-Testando [] = []
-Testando ((Comprar _ _):tail) = Testando tail
-Testando ((Medicar m):tail) = m : Testando tail
+
+pTeste :: [Cuidado] -> [Medicamento]
+pTeste [] = []
+pTeste ((Comprar _ _):tail) = pTeste tail
+pTeste ((Medicar m):tail) = m : pTeste tail
 
 
 asdteste :: [(Int,[Cuidado])] -> Bool
