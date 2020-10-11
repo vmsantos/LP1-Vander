@@ -374,7 +374,7 @@ verifPlantaoPlano ((h,c):ps) ((h2,m):pms)
 
 satisfaz :: Plantao -> PlanoMedicamento -> EstoqueMedicamentos -> Bool
 satisfaz p _ e = ((executaPlantao p e) /= Nothing)
-satisfaz p pm _ = verifPlantaoPlano p pm
+satisfaz p pm = verifPlantaoPlano p pm
 
 {-
 
