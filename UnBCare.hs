@@ -387,3 +387,10 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto = undefined
+
+{- 
+consultarMedicamento
+demandaMedicamentos
+geraPlanoReceituario
+geraReceituarioPlano 
+-}
