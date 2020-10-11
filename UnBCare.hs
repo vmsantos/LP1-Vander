@@ -196,6 +196,7 @@ asdteste :: [(Int,[Cuidado])] -> Bool
 asdteste [] = True
 asdteste ((_,c):tail)
   | c == quickSort ((filter (\x -> case x of (Comprar _ _) -> True; (Medicar _) -> False) c) >>= (\(Comprar m _) -> [m] )) = asdteste tail
+  | otherwise = False
  
 
 lTeste :: [Cuidado] -> [Medicamento]
