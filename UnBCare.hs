@@ -349,7 +349,7 @@ executaCuidados [] e = Just e
 executaCuidados (c:cs) e = executaCuidados cs (unMaybe (executaCuidado c e))
 
 executaPlantao :: Plantao -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
-executaPlantao ((_,c):ps) e = executaPlantao (executaCuidados c e)
+executaPlantao ((_,c):ps) e = executaPlantao (unMaybe (executaCuidados c e))
 
 {-
 QUESTÃO 10 VALOR: 1,0 ponto
