@@ -365,10 +365,9 @@ juntamente com ministrar medicamento.
 
 -}
 verifPlantaoPlano :: Plantao -> PlanoMedicamento -> Bool
-verifPlantaoPlano ((h,_):_) ((h2,_):_)
 verifPlantaoPlano ((h,c):ps) ((h2,m):pms)
   | h /= h2 = False
-  | 
+  | (pMedicar c) \= m = False
 
 satisfaz :: Plantao -> PlanoMedicamento -> EstoqueMedicamentos -> Bool
 satisfaz p _ e = ((executaPlantao p e) /= Nothing)
