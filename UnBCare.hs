@@ -197,7 +197,7 @@ asdteste [] = True
 asdteste ((_,c):tail)
   | lm == quickSort lm = asdteste tail
   | otherwise = False
-  where lm = (filter (\x -> case x of (Comprar _ _) -> True; (Medicar _) -> False) a) >>= (\(Comprar m _) -> [m] )
+  where lm = (filter (\x -> case x of (Comprar _ _) -> True; (Medicar _) -> False) c) >>= (\(Comprar m _) -> [m] )
  
 
 lTeste :: [Cuidado] -> [Medicamento]
