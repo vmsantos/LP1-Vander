@@ -191,12 +191,6 @@ planoValido planomedico
 
  -}
 
-pCuidado :: [Cuidado] -> [Medicamento]
-pCuidado [] = []
-pCuidado ((Comprar m _):tail) = m : pCuidado tail
-pCuidado ((Medicar m):tail) = m : pCuidado tail
-
-
 pMedicar :: [Cuidado] -> [Medicamento]
 pMedicar [] = []
 pMedicar ((Comprar _ _):tail) = pMedicar tail
@@ -207,21 +201,11 @@ pComprar [] = []
 pComprar ((Medicar _):tail) = pComprar tail
 pComprar ((Comprar m _):tail) = m : pComprar tail
 
-{- 
-pMedicar :: [Cuidado] -> [Medicamento]
-pMedicar (h:tail)
- -}
-
 temIntersect :: Eq a => [a] -> [a] -> Bool
 temIntersect [] _ = False
 temIntersect (x:xs) l 
   | elem x l = True
   | otherwise = temIntersect xs l
-
-asdteste :: [(Int,[Cuidado])] -> Bool
-asdteste [] = True
-asdteste ((_,c:cs):tail)
-  | 
 
 verifCompraMinistra :: Plantao -> Bool
 verifCompraMinistra [] = False
