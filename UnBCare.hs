@@ -339,6 +339,8 @@ executaCuidado _ [] = Nothing
 executaCuidado (Comprar m q) e = Just (comprarMedicamento m q e)
 executaCuidado (Medicar m) e = tomarMedicamento m e
 
+executaCuidados :: [Cuidado] -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
+
 executaPlantao :: Plantao -> EstoqueMedicamentos -> Maybe EstoqueMedicamentos
 executaPlantao [] = undefined
 
