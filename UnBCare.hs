@@ -366,7 +366,7 @@ juntamente com ministrar medicamento.
 -}
 verifPlantaoPlano :: Plantao -> PlanoMedicamento -> Bool
 verifPlantaoPlano ((h,c):ps) ((h2,m):pms)
-  | 
+  | h /= h2 = False
 
 satisfaz :: Plantao -> PlanoMedicamento -> EstoqueMedicamentos -> Bool
 satisfaz p _ e = ((executaPlantao p e) /= Nothing)
