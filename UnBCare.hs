@@ -398,9 +398,9 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
 
 -}
 
-listaCompras :: [(Medicamento, Quantidade)] -> [Cuidado]
-listaCompras [] = []
-listaCompras ((m,q):ds) = (Comprar m q) : listaCompras ds
+geraCompras :: [(Medicamento, Quantidade)] -> [Cuidado]
+geraCompras [] = []
+geraCompras ((m,q):ds) = (Comprar m q) : geraCompras ds
 
 geraCuidados :: [Medicamento] -> [Cuidado]
 geraCuidados [] = []
