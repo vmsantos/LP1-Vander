@@ -412,6 +412,7 @@ plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] _ = []
 plantaoCorreto ((h,m):tail) _ = (h,geraCuidados m) : (plantaoCorreto tail [])
 
+
 {- 
 consultarMedicamento
 demandaMedicamentos
