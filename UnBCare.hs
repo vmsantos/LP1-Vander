@@ -367,7 +367,7 @@ juntamente com ministrar medicamento.
 
 filtraPlantao :: Plantao -> Plantao
 filtraPlantao [] = []
-filtraPlantao p:ps
+filtraPlantao (p:ps)
   | (Medicar _) 'notElem' (snd p) = filtraPlantao p
   | otherwise = p : filtraPlantao ps
 
