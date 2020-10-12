@@ -365,6 +365,12 @@ juntamente com ministrar medicamento.
 
 -}
 
+filtraPlantao :: Plantao -> Plantao
+filtraPlantao [] = []
+filtraPlantao p:ps
+  | (Medicar _) 'notElem' (snd p) = filtraPlantao p
+  | otherwise = p : filtraPlantao ps
+
 verifPlantaoPlano :: Plantao -> PlanoMedicamento -> Bool
 verifPlantaoPlano [] [] = True
 verifPlantaoPlano ((h,c):ps) ((h2,m):pms)
@@ -386,11 +392,11 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
  de medicamentos e ao estoque.
 
 -}
-verifSeCompra :: EstoqueMedicamentos -> PlanoMedicamento -> [(Medicamento, Quantidade)]
+verifSeCompra :: [(Medicamento, Quantidade)] -> EstoqueMedicamentos -> [(Medicamento, Quantidade)]
 verifSeCompra [] _ = []
-verifSeCompra (e:es) (d:ds) 
-  | (snd e) >= (snd d) = verifSeCompra es ds
-  | otherwise = ((fst d), (snd d) - (snd e)) : verifSeCompra es ds 
+verifSeCompra (d:ds) e
+  | (d ´elem´ e) &&  = 
+ 
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] [] = []
