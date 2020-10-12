@@ -409,9 +409,14 @@ listaCompras :: [(Medicamento, Quantidade)] -> [Cuidado]
 listaCompras [] = []
 listaCompras ((m,q):ds) = (Comprar m q) : listaCompras ds
 
+geraCuidados :: [Medicamento] -> [Cuidado]
+geraCuidados [] = []
+geraCuidados (m:ds) = (Medicar m) : geraCuidados ds
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] [] = []
+plantaoCorreto ((h,m):tail)
+  | 
 
 {- 
 consultarMedicamento
