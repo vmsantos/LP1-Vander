@@ -414,7 +414,7 @@ plantaoCorretoAux ((h,m):tail) _ = (h,geraCuidados m) : (plantaoCorretoAux tail 
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] _ = []
-plantaoCorreto ((h,m):tail) _ = (h,geraCuidados m) : (plantaoCorreto tail [])
+plantaoCorreto p _ = min
 
 
 {- 
