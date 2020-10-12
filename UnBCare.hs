@@ -404,7 +404,11 @@ verifSeCompra [] _ = []
 verifSeCompra (d:ds) e
   | (d ´elem´ e) &&  =  
 -}
- 
+
+listaCompras :: [(Medicamento, Quantidade)] -> [Cuidado]
+listaCompras [] = []
+listaCompras ((m,q):ds) = (Comprar m q) : listaCompras ds
+
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] [] = []
