@@ -389,6 +389,7 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
 verifSeCompra :: EstoqueMedicamentos -> [(Medicamento, Quantidade)] -> [(Medicamento, Quantidade)]
 verifSeCompra (e:es) (d:ds) 
   | (snd e) >= (snd d) = verifSeCompra es ds
+  | otherwise = ((fst d), (snd d) - (snd e)) : verifSeCompra es ds 
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] [] = []
