@@ -373,7 +373,7 @@ tipoCuidado ((Medicar _):tail) = "Medicar" : tipoCuidado tail
 filtraPlantao :: Plantao -> Plantao
 filtraPlantao [] = []
 filtraPlantao (p:ps)
-  | notElem "Medicar" tipoCuidado(snd p) = filtraPlantao ps
+  | notElem "Medicar" (tipoCuidado(snd p)) = filtraPlantao ps
   | otherwise = p : filtraPlantao ps
 
 verifPlantaoPlano :: Plantao -> PlanoMedicamento -> Bool
