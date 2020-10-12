@@ -384,7 +384,7 @@ verifPlantaoPlano ((h,c):ps) ((h2,m):pms)
   | otherwise = verifPlantaoPlano ps pms
 
 satisfaz :: Plantao -> PlanoMedicamento -> EstoqueMedicamentos -> Bool
-satisfaz p pm e = ((executaPlantao (p) e) /= Nothing) && verifPlantaoPlano (filtraPlantao p) pm
+satisfaz p pm e = ((executaPlantao p e) /= Nothing) && verifPlantaoPlano (filtraPlantao p) pm
 
 {-
 
