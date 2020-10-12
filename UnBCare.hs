@@ -398,13 +398,6 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
 
 -}
 
-{- 
-verifSeCompra :: [(Medicamento, Quantidade)] -> EstoqueMedicamentos -> [(Medicamento, Quantidade)]
-verifSeCompra [] _ = []
-verifSeCompra (d:ds) e
-  | (d ´elem´ e) &&  =  
--}
-
 listaCompras :: [(Medicamento, Quantidade)] -> [Cuidado]
 listaCompras [] = []
 listaCompras ((m,q):ds) = (Comprar m q) : listaCompras ds
@@ -413,11 +406,11 @@ geraCuidados :: [Medicamento] -> [Cuidado]
 geraCuidados [] = []
 geraCuidados (m:ds) = (Medicar m) : geraCuidados ds
 
+--(h-1,(listaCompras(demandaMedicamentos (geraReceituarioPlano ((h,m):tail)))))
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] [] = []
-{- plantaoCorreto ((h,m):tail)
-  |  -}
+plantaoCorreto ((h,m):tail) _ = (h,geraCuidados m) : plantaoCorreto tail _
 
 {- 
 consultarMedicamento
