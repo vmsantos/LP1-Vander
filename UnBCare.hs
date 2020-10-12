@@ -368,7 +368,7 @@ juntamente com ministrar medicamento.
 filtraPlantao :: Plantao -> Plantao
 filtraPlantao [] = []
 filtraPlantao (p:ps)
-  | notElem (Medicar m) (snd p) = filtraPlantao ps
+  | notElem (Medicar _) (snd p) = filtraPlantao ps
   | otherwise = p : filtraPlantao ps
 
 verifPlantaoPlano :: Plantao -> PlanoMedicamento -> Bool
