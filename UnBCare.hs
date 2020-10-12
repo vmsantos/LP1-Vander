@@ -397,10 +397,13 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
  de medicamentos e ao estoque.
 
 -}
-{- verifSeCompra :: [(Medicamento, Quantidade)] -> EstoqueMedicamentos -> [(Medicamento, Quantidade)]
+
+{- 
+verifSeCompra :: [(Medicamento, Quantidade)] -> EstoqueMedicamentos -> [(Medicamento, Quantidade)]
 verifSeCompra [] _ = []
 verifSeCompra (d:ds) e
-  | (d ´elem´ e) &&  =  -}
+  | (d ´elem´ e) &&  =  
+-}
  
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
