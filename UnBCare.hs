@@ -406,19 +406,18 @@ geraCuidados :: [Medicamento] -> [Cuidado]
 geraCuidados [] = []
 geraCuidados (m:ds) = (Medicar m) : geraCuidados ds
 
---(h-1,(listaCompras(demandaMedicamentos (geraReceituarioPlano ((h,m):tail)))))
+--(h-1,(geraCompras (demandaMedicamentos (geraReceituarioPlano plano))))
 
 geraPlantao :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 geraPlantao  [] _ = []
 geraPlantao ((h,m):tail) _ = (h,geraCuidados m) : (geraPlantao tail [])
 
-geraPlantaoAux :: Horario -> [Cuidado] -> (Horario, [Cuidado])
-geraPlantaoAux h c = (h, c)
+geraPlantaoAux :: PlanoMedicamento -> (Horario, [Cuidado])
+geraPlantaoAux p c = 
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] _ = []
-plantaoCorreto p _ = min
-
+plantaoCorreto p _ = geraPlantaoAux : 
 
 {- 
 consultarMedicamento
