@@ -408,9 +408,9 @@ geraCuidados (m:ds) = (Medicar m) : geraCuidados ds
 
 --(h-1,(listaCompras(demandaMedicamentos (geraReceituarioPlano ((h,m):tail)))))
 
-plantaoCorretoAux :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
-plantaoCorretoAux  [] _ = []
-plantaoCorretoAux ((h,m):tail) _ = (h,geraCuidados m) : (plantaoCorretoAux tail [])
+geraPlantao :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
+geraPlantao  [] _ = []
+geraPlantao ((h,m):tail) _ = (h,geraCuidados m) : (geraPlantao tail [])
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] _ = []
