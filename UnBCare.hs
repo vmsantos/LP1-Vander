@@ -412,6 +412,9 @@ geraPlantao :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 geraPlantao  [] _ = []
 geraPlantao ((h,m):tail) _ = (h,geraCuidados m) : (geraPlantao tail [])
 
+geraPlantaoAux :: Horario -> [Cuidado] -> (Horario, [Cuidado])
+geraPlantaoAux h c = (h, c)
+
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] _ = []
 plantaoCorreto p _ = min
