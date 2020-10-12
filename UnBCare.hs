@@ -417,7 +417,7 @@ geraPlantaoAux ((h,m):tail) = (h-1,(geraCompras (demandaMedicamentos (geraReceit
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] _ = []
-plantaoCorreto p _ = geraPlantaoAux : 
+{- plantaoCorreto p _ = geraPlantaoAux :  -}
 
 {- 
 consultarMedicamento
