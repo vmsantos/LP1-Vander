@@ -379,18 +379,24 @@ satisfaz p pm e = ((executaPlantao p e) /= Nothing) && verifPlantaoPlano p pm
 
 QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
 
- Defina a função "plantaoCorreto", cujo tipo é dado abaixo e que gera um plantão válido que satisfaz um plano de
+ Defina a função "plantaoCorreto", cujo tipo é dado abaixo 
+ e que gera um plantão válido que satisfaz um plano de
  medicamentos válido e um estoque de medicamentos.
- Dica: a execução do plantão deve atender ao plano de medicamentos e ao estoque.
+ Dica: a execução do plantão deve atender ao plano 
+ de medicamentos e ao estoque.
 
 -}
+verifSeCompra :: EstoqueMedicamentos -> [(Medicamento, Quantidade)] -> [(Medicamento, Quantidade)]
+verifSeCompra (e:es) (d:ds) 
+  | (snd e) >= (snd d) = verifSeCompra es ds
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
-plantaoCorreto = undefined
+plantaoCorreto  [] [] = []
 
 {- 
 consultarMedicamento
 demandaMedicamentos
 geraPlanoReceituario
 geraReceituarioPlano 
+plantaoValido
 -}
