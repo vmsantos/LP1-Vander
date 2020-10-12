@@ -365,6 +365,11 @@ juntamente com ministrar medicamento.
 
 -}
 
+tipoCuidado :: [Cuidado] -> [String]
+tipoCuidado [] = []
+tipoCuidado ((Comprar _ _):tail) = tipoCuidado tail
+tipoCuidado ((Medicar m):tail) = m : tipoCuidado tail
+
 filtraPlantao :: Plantao -> Plantao
 filtraPlantao [] = []
 filtraPlantao (p:ps)
