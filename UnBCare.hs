@@ -398,26 +398,24 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
 
 -}
 
-geraCompras :: [(Medicamento, Quantidade)] -> [Cuidado]
-geraCompras [] = []
-geraCompras ((m,q):ds) = (Comprar m q) : geraCompras ds
+geraCompras :: [(Medicamento, Quantidade)] -> EstoqueMedicamentos -> [Cuidado]
+geraCompras [] _ = []
+geraCompras ((m,q):ds) e = (Comprar m (q-consultarMedicamento(m, e))) : geraCompras ds
 
 geraCuidados :: [Medicamento] -> [Cuidado]
 geraCuidados [] = []
 geraCuidados (m:ds) = (Medicar m) : geraCuidados ds
 
---(h-1,(geraCompras (demandaMedicamentos (geraReceituarioPlano plano))))
-
 geraPlantao :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 geraPlantao  [] _ = []
 geraPlantao ((h,m):tail) _ = (h,geraCuidados m) : (geraPlantao tail [])
 
-geraPlantaoAux :: PlanoMedicamento -> (Horario, [Cuidado])
-geraPlantaoAux ((h,m):tail) = (h-1,(geraCompras (demandaMedicamentos (geraReceituarioPlano ((h,m):tail)))))
+geraPlantaoAux :: PlanoMedicamento -> EstoqueMedicamentos -> (Horario, [Cuidado])
+geraPlantaoAux ((h,m):tail) e = (h-1,(geraCompras (demandaMedicamentos (geraReceituarioPlano ((h,m):tail))) e))
 
 plantaoCorreto :: PlanoMedicamento -> EstoqueMedicamentos -> Plantao
 plantaoCorreto  [] _ = []
-plantaoCorreto p _ = geraPlantaoAux p : geraPlantao p []
+plantaoCorreto p e = geraPlantaoAux p e : geraPlantao p []
 
 {- 
 consultarMedicamento
