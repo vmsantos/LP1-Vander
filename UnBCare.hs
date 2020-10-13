@@ -400,7 +400,7 @@ QUESTÃO 11 (EXTRA) VALOR: 1,0 ponto
 
 geraCompras :: [(Medicamento, Quantidade)] -> EstoqueMedicamentos -> [Cuidado]
 geraCompras [] _ = []
-geraCompras ((m,q):ds) e -- = (Comprar m (q - (consultarMedicamento m e))) : geraCompras ds e
+geraCompras ((m,q):ds) e 
   | (q - (consultarMedicamento m e)) > 0 = (Comprar m (q - (consultarMedicamento m e))) : geraCompras ds e
   | otherwise = geraCompras ds e
 
