@@ -402,7 +402,6 @@ geraCompras :: [(Medicamento, Quantidade)] -> EstoqueMedicamentos -> [Cuidado]
 geraCompras [] _ = []
 geraCompras ((m,q):ds) e = (Comprar m (q - consultarMedicamento(m,e))) : geraCompras ds e
 
-
 geraCuidados :: [Medicamento] -> [Cuidado]
 geraCuidados [] = []
 geraCuidados (m:ds) = (Medicar m) : geraCuidados ds
