@@ -85,7 +85,7 @@ exemploReturn5 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")]
                         [SDec (Dec Tint (Ident "p")),
                          SAss (Ident "p") (EInt 1),
                          SIf (EVar (Ident "n")) 
-                          (SRepeat (SBlock [SAss (Ident "p") (EMul (EVar (Ident "n")) (EVar (Ident "p"))),
+                          (SWhile (SBlock [SAss (Ident "p") (EMul (EVar (Ident "n")) (EVar (Ident "p"))),
                                             SAss (Ident "n") (ESub (EVar (Ident "n")) (EInt 1))]) 
                                    (EVar (Ident "n"))) 
                           (SAss (Ident "p") (EInt 1)),
