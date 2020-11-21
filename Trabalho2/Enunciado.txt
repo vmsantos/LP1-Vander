@@ -1,0 +1,23 @@
+Trabalho 2
+
+Entrega: 25/11/2020 às 23:59h.
+
+-->>> Questão 1 (total de 10 pontos) <<<--
+
+Evolua a LI2Tipada com o comando "repeat until" da seguinte forma:
+a) evolua o interpretador (arquivo  Interpreter.hs)    (5 pontos)
+b) evolua o checador de tipos (arquivo Typechecer.hs)  (5 pontos)
+
+Em ambos os casos, é fundamental estudar a estrutura do programa definida no arquivo AbsLI.hs,
+que já conterá a representação do comando "repeat until". Favor não alterar os arquivos AbsLI.hs e
+PrintLI.hs. Nos arquivos  Interpreter.hs e Typechecer.hs, há exemplos de testes com valores esperados,
+uma vez que a implementação solicitada no exercício tenha sido realizada.
+
+A entrega deve ser no mesmo formato do T1, ou seja via tarefa do Aprender3, sendo que os seguintes arquivos
+devem ser entregues: Typechecer.hs e Interpreter.hs. No início de cada arquivo, devem constar, como 
+comentário em Haskell, o nome completo e matrícula de todos os membros do grupo.
+
+Conforme informado no plano de curso, o trabalho pode ser feito em grupo de no máximo 3 alunos.
+
+
+Bom trabalho!
