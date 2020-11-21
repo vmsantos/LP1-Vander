@@ -67,7 +67,7 @@ exemploReturn3 = Prog [Fun Tint (Ident "main") []
                         [SDec (Dec Tint (Ident "x")),
                          SAss (Ident "x") (EInt 7),
                          SDec (Dec Tint (Ident "r")),
-                         SAss (Ident "r") (Call (Ident "fatorial") [EVar (Ident "x")]),
+                         SAss (Ident "r") (Call (Ident "Fatorial") [EVar (Ident "x")]),
                          SReturn (EVar (Ident "r"))]]                        
 
 {- 
