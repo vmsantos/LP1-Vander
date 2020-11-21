@@ -20,14 +20,7 @@ exemploReturn1 = Prog [Fun Tint (Ident "main") []
                     SRepeat (SBlock [SAss (Ident "soma") (EAdd (EVar (Ident "soma")) (EVar (Ident "c"))),
                                      SAss (Ident "c") (ESub (EVar (Ident "c")) (EInt 1))])
                         (EVar (Ident "c")),
-                    SReturn (EVar (Ident "soma"))]]
-
-exemploReturn4 = Prog [Fun Tint (Ident "main") [] 
-                    [SDec (Dec Tint (Ident "c")), 
-                    SDec (Dec Tint (Ident "soma")),
-                    SAss (Ident "c") (EInt 10),
-                    SAss (Ident "soma") (EInt 0),
-                    SReturn (EVar (Ident "soma"))]]                    
+                    SReturn (EVar (Ident "soma"))]]               
 
 {- exemploReturn1 acima representa o seguinte programa fonte da LI2Tipada evoluida com "repeat until":
 
@@ -69,6 +62,14 @@ exemploReturn2 = Prog [Fun Tint (Ident "main") []
                           (SAss (Ident "p") (EInt 1)),
                          SReturn (EVar (Ident "p"))]]
 
+-- Outros testes
+
+exemploReturn4 = Prog [Fun Tint (Ident "main") [] 
+                    [SDec (Dec Tint (Ident "c")), 
+                    SDec (Dec Tint (Ident "soma")),
+                    SAss (Ident "c") (EInt 10),
+                    SAss (Ident "soma") (EInt 0),
+                    SReturn (EVar (Ident "soma"))]]   
 
 exemploReturn3 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")] 
                         [SDec (Dec Tint (Ident "p")),
@@ -78,7 +79,17 @@ exemploReturn3 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")]
                                             SAss (Ident "n") (ESub (EVar (Ident "n")) (EInt 1))]) 
                                    (EVar (Ident "n"))) 
                           (SAss (Ident "p") (EInt 1)),
-                         SReturn (EVar (Ident "p"))]]                        
+                         SReturn (EVar (Ident "p"))]]         
+
+exemploReturn5 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")] 
+                        [SDec (Dec Tint (Ident "p")),
+                         SAss (Ident "p") (EInt 1),
+                         SIf (EVar (Ident "n")) 
+                          (SRepeat (SBlock [SAss (Ident "p") (EMul (EVar (Ident "n")) (EVar (Ident "p"))),
+                                            SAss (Ident "n") (ESub (EVar (Ident "n")) (EInt 1))]) 
+                                   (EVar (Ident "n"))) 
+                          (SAss (Ident "p") (EInt 1)),
+                         SReturn (EVar (Ident "p"))]]                                              
 
 {- 
 exemploReturn2 acima representa o seguinte programa fonte da LI2Tipada evoluida com "repeat until"
