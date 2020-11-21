@@ -175,7 +175,7 @@ tk environment x = case x of
                                                    OK _ ->  tk environment stmE
                                                    Erro msg -> Erro (msg ++ " no comando: " ++ printTree cIf)
                                      Erro msg -> Erro (msg ++ " no comando: " ++ printTree cIf)
-
+   
 
 tke :: Environment -> Exp -> Type -> R Environment
 tke environment exp tp = let r = tinf environment exp in
