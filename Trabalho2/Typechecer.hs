@@ -22,6 +22,16 @@ exemploReturn1 = Prog [Fun Tint (Ident "main") []
                         (EVar (Ident "c")),
                     SReturn (EVar (Ident "soma"))]]
 
+exemploReturn12 = Prog [Fun Tint (Ident "main") [] 
+                    [SDec (Dec Tint (Ident "c")), 
+                    SDec (Dec Tint (Ident "soma")),
+                    SAss (Ident "c") (EInt 10),
+                    SAss (Ident "soma") (EInt 0),
+                    SRepeat (SBlock [SAss (Ident "soma") (EAdd (EVar (Ident "soma")) (EVar (Ident "c"))),
+                                     SAss (Ident "c") (ESub (EVar (Ident "c")) (EInt 1))])
+                        (EVar (Ident "c")),
+                    SReturn (EVar (Ident "soma"))]]                    
+
 {- exemploReturn1 acima representa o seguinte programa fonte da LI2Tipada evoluida com "repeat until":
 
 int main () {
