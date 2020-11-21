@@ -63,13 +63,7 @@ exemploReturn2 = Prog [Fun Tint (Ident "main") []
                          SReturn (EVar (Ident "p"))]]
 
 
-exemploReturn3 = Prog [Fun Tint (Ident "main") []
-                        [SDec (Dec Tint (Ident "x")),
-                         SAss (Ident "x") (EInt 7),
-                         SDec (Dec Tint (Ident "r")),
-                         SAss (Ident "r") (Call (Ident "fatorial") [EVar (Ident "x")]),
-                         SReturn (EVar (Ident "r"))],
-                       Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")] 
+exemploReturn3 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")] 
                         [SDec (Dec Tint (Ident "p")),
                          SAss (Ident "p") (EInt 1),
                          SIf (EVar (Ident "n")) 
