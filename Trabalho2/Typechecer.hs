@@ -80,22 +80,43 @@ exemploReturn3 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")]
                                    (EVar (Ident "n"))) 
                           (SAss (Ident "p") (EInt 1)),
                          SReturn (EVar (Ident "p"))]]         
-{- 
+ 
 exemploReturn5 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")] 
                         [SDec (Dec Tint (Ident "p")),
                          SAss (Ident "p") (EInt 1),
                          SIf (EVar (Ident "n")) 
-                          (SWhile (SBlock [SAss (Ident "p") (EMul (EVar (Ident "n")) (EVar (Ident "p"))),
+                          (SWhile   (EVar (Ident "n"))
+                                    (SBlock [SAss (Ident "p") (EMul (EVar (Ident "n")) (EVar (Ident "p"))),
                                             SAss (Ident "n") (ESub (EVar (Ident "n")) (EInt 1))]) 
-                                   (EVar (Ident "n"))) 
+                                   ) 
                           (SAss (Ident "p") (EInt 1)),
                          SReturn (EVar (Ident "p"))]]     
 
+{-
 
+int main () {
+ int x;
+ x = 7;
+ int r ;
+ r = fatorial (x);
+ return r;
+}
 
-int main () {}
+int fatorial (int n) {
+ int p;
+ p = 1;
+ if (n)
+   then 
+     repeat {
+             p = n * p;
+             n = n - 1;
+		    }
+     until ( n ) ;
+   else p = 1;
+ return p;
+}
 
- -}                                                                  
+-}                                                                  
 
 {- 
 exemploReturn2 acima representa o seguinte programa fonte da LI2Tipada evoluida com "repeat until"
