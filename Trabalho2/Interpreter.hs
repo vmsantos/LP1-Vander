@@ -15,7 +15,7 @@ exemploReturn1 = Prog [Fun Tint (Ident "main") []
                     [SDec (Dec Tint (Ident "c")), 
                     SDec (Dec Tint (Ident "soma")),
                     SAss (Ident "c") (EInt 10),
-                    SAss (Ident "somaa") (EInt 0),
+                    SAss (Ident "soma") (EInt 0),
                     SRepeat (SBlock [SAss (Ident "soma") (EAdd (EVar (Ident "soma")) (EVar (Ident "c"))),
                                      SAss (Ident "c") (ESub (EVar (Ident "c")) (EInt 1))])
                         (EVar (Ident "c")),
