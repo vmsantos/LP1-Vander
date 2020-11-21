@@ -22,7 +22,7 @@ exemploReturn1 = Prog [Fun Tint (Ident "main") []
                         (EVar (Ident "c")),
                     SReturn (EVar (Ident "soma"))]]
 
-exemploReturn12 = Prog [Fun Tint (Ident "main") [] 
+exemploReturn4 = Prog [Fun Tint (Ident "main") [] 
                     [SDec (Dec Tint (Ident "c")), 
                     SDec (Dec Tint (Ident "soma")),
                     SAss (Ident "c") (EInt 10),
