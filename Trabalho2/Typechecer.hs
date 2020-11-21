@@ -149,6 +149,8 @@ Numa sessão com o GHCI, o seguinte resultado é esperado:
 [OK ([[("r",int),("x",int)]],[("fatorial",int<-(int n)),("main",int<-())]),OK ([[("p",int),("n",int)]],
 [("fatorial",int<-(int n)),("main",int<-())])]
 
+[OK ([[("r",int),("x",int)]],[("fatorial",int<-(int n)),("main",int<-())]),OK ([[("p",int),("n",int)]],
+[("fatorial",int<-(int n)),("main",int<-())])]
 -}
 
 
