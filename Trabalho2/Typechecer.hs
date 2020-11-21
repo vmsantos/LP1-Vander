@@ -213,6 +213,10 @@ tk environment x = case x of
                                                    OK _ ->  tk environment stmE
                                                    Erro msg -> Erro (msg ++ " no comando: " ++ printTree cIf)
                                      Erro msg -> Erro (msg ++ " no comando: " ++ printTree cIf)
+   cRepeat@(SRepeat stm exp) ->  let r = tke environment exp Tint in 
+                                  case r of 
+                                     OK _ -> tk environment stm
+                                     Erro msg -> Erro (msg ++ " no comando: " ++ printTree cRepeat)                                  
    
 
 tke :: Environment -> Exp -> Type -> R Environment
