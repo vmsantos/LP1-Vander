@@ -62,6 +62,14 @@ exemploReturn2 = Prog [Fun Tint (Ident "main") []
                           (SAss (Ident "p") (EInt 1)),
                          SReturn (EVar (Ident "p"))]]
 
+
+exemploReturn3 = Prog [Fun Tint (Ident "main") []
+                        [SDec (Dec Tint (Ident "x")),
+                         SAss (Ident "x") (EInt 7),
+                         SDec (Dec Tint (Ident "r")),
+                         SAss (Ident "r") (Call (Ident "fatorial") [EVar (Ident "x")]),
+                         SReturn (EVar (Ident "r"))]]                        
+
 {- 
 exemploReturn2 acima representa o seguinte programa fonte da LI2Tipada evoluida com "repeat until"
 
