@@ -1,9 +1,10 @@
 {- IDENTIFICAÇÃO DO TRABALHO (de cada membro do grupo):
 
- Nome completo:      Matrícula: 
-
+ Nome completo: João Victor Bohrer Munhoz               Matrícula: 16/0071101
+ Nome completo: Matheus Gabriel da Silva Rodrigues      Matrícula: 18/0025031
+ Nome completo: Vinícius de Melo Santos                 Matrícula: 17/0157849
+ 
 -}
-
 
 module Typechecer where
 
@@ -44,7 +45,6 @@ Numa sessão com o GHCI, o seguinte resultado é esperado:
 
 -}
 
-
 -- *** TESTE 2 ***
 exemploReturn2 = Prog [Fun Tint (Ident "main") []
                         [SDec (Dec Tint (Ident "x")),
@@ -61,36 +61,6 @@ exemploReturn2 = Prog [Fun Tint (Ident "main") []
                                    (EVar (Ident "n"))) 
                           (SAss (Ident "p") (EInt 1)),
                          SReturn (EVar (Ident "p"))]]
-
--- Outros testes
-
-exemploReturn4 = Prog [Fun Tint (Ident "main") [] 
-                    [SDec (Dec Tint (Ident "c")), 
-                    SDec (Dec Tint (Ident "soma")),
-                    SAss (Ident "c") (EInt 10),
-                    SAss (Ident "soma") (EInt 0),
-                    SReturn (EVar (Ident "soma"))]]   
-
-exemploReturn3 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")] 
-                        [SDec (Dec Tint (Ident "p")),
-                         SAss (Ident "p") (EInt 1),
-                         SIf (EVar (Ident "n")) 
-                          (SRepeat (SBlock [SAss (Ident "p") (EMul (EVar (Ident "n")) (EVar (Ident "p"))),
-                                            SAss (Ident "n") (ESub (EVar (Ident "n")) (EInt 1))]) 
-                                   (EVar (Ident "n"))) 
-                          (SAss (Ident "p") (EInt 1)),
-                         SReturn (EVar (Ident "p"))]]         
- 
-exemploReturn5 = Prog [Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")] 
-                        [SDec (Dec Tint (Ident "p")),
-                         SAss (Ident "p") (EInt 1),
-                         SIf (EVar (Ident "n")) 
-                          (SWhile   (EVar (Ident "n"))
-                                    (SBlock [SAss (Ident "p") (EMul (EVar (Ident "n")) (EVar (Ident "p"))),
-                                            SAss (Ident "n") (ESub (EVar (Ident "n")) (EInt 1))]) 
-                                   ) 
-                          (SAss (Ident "p") (EInt 1)),
-                         SReturn (EVar (Ident "p"))]]     
 
 {-
 
