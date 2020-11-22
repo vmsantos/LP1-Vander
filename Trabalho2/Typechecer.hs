@@ -60,33 +60,7 @@ exemploReturn2 = Prog [Fun Tint (Ident "main") []
                                             SAss (Ident "n") (ESub (EVar (Ident "n")) (EInt 1))]) 
                                    (EVar (Ident "n"))) 
                           (SAss (Ident "p") (EInt 1)),
-                         SReturn (EVar (Ident "p"))]]
-
-{-
-
-int main () {
- int x;
- x = 7;
- int r ;
- r = fatorial (x);
- return r;
-}
-
-int fatorial (int n) {
- int p;
- p = 1;
- if (n)
-   then 
-     repeat {
-             p = n * p;
-             n = n - 1;
-		    }
-     until ( n ) ;
-   else p = 1;
- return p;
-}
-
--}                                                                  
+                         SReturn (EVar (Ident "p"))]]                                                             
 
 {- 
 exemploReturn2 acima representa o seguinte programa fonte da LI2Tipada evoluida com "repeat until"
