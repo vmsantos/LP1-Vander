@@ -1,7 +1,9 @@
 {- IDENTIFICAÇÃO DO TRABALHO (de cada membro do grupo):
 
- Nome completo:      Matrícula: 
-
+ Nome completo: João Victor Bohrer Munhoz               Matrícula: 16/0071101
+ Nome completo: Matheus Gabriel da Silva Rodrigues      Matrícula: 18/0025031
+ Nome completo: Vinícius de Melo Santos                 Matrícula: 17/0157849
+ 
 -}
 
 module Interpreter where
