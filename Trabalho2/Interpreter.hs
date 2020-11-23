@@ -153,13 +153,13 @@ execute environment x = case x of
    SIf exp stmT stmE -> if ( i (eval environment exp) /= 0) 
                           then execute environment stmT
                           else execute environment stmE
-   {- SRepeat stm exp -> if ( i (eval environment exp) /= 0) 
+    SRepeat stm exp -> if ( i (eval environment exp) /= 0) 
                       then execute (execute environment stm) (SRepeat stm exp)
-                      else environment       -}                 
-   SRepeat stm exp -> let a = execute (execute environment stm) stm
+                      else environment                       
+  {- SRepeat stm exp -> let a = execute (execute environment stm) stm
                       in if ( i (eval a exp) /= 0 ) 
                         then execute (execute environment stm) (SRepeat stm exp)
-                        else a
+                        else a-} 
 
 eval :: Environment -> Exp -> Valor
 eval environment x = case x of
