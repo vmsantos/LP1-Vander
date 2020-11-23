@@ -129,7 +129,8 @@ exemploReturn4 = Prog [Fun Tint (Ident "main") []
                                      SAss (Ident "c") (ESub (EVar (Ident "c")) (EInt 1))])
                         (EVar (Ident "c")),
                     SReturn (EVar (Ident "soma"))]]
-
+                    
+-- ([[("c",-1),("soma",10),("return",10)]],[("main",int<-())])
 
 executeP :: Program -> Environment
 
