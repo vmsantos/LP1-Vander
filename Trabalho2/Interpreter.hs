@@ -109,14 +109,18 @@ exemploReturn3 = Prog [Fun Tint (Ident "main") []
 
 {-
 int main () {
- int p;
- p = 1;
-repeat {
-  p = p + 1
-}
-until ( p == 10 ) ;
-return p;
-}
+  int c;
+  int soma;
+  c = 0;
+  soma = 0;
+  do {
+      soma = soma + 10;
+      c = c - 1;
+    }
+  while (c) ;
+ return soma;
+ }
+([[("c",-1),("soma",10),("return",10)]],[("main",int<-())])
 -}
 
 exemploReturn4 = Prog [Fun Tint (Ident "main") [] 
