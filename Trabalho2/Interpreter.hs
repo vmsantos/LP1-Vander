@@ -130,7 +130,22 @@ exemploReturn4 = Prog [Fun Tint (Ident "main") []
                         (EVar (Ident "c")),
                     SReturn (EVar (Ident "soma"))]]
 
--- ([[("c",-1),("soma",10),("return",10)]],[("main",int<-())])
+{-
+int main () {
+  int c;
+  int soma;
+  c = 10;
+  soma = 0;
+  repeat {
+      soma = soma + c;
+      c = c - 1;
+    }
+  until (c) ;
+ return soma;
+ }
+([[("c",-1),("soma",10),("return",10)]],[("main",int<-())])
+-}
+
 
 executeP :: Program -> Environment
 
