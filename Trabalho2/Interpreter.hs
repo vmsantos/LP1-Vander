@@ -100,9 +100,10 @@ Numa sessão com o GHCI, o seguinte resultado é esperado:
 exemploReturn3 = Prog [Fun Tint (Ident "main") [] 
                     [SDec (Dec Tint (Ident "c")), 
                     SDec (Dec Tint (Ident "soma")),
-                    SAss (Ident "c") (EInt 10),
+                    SAss (Ident "c") (EInt 0),
                     SAss (Ident "soma") (EInt 0),
-                    SRepeat (SBlock [SAss (Ident "soma") (EAdd (EVar (Ident "soma")) (EVar (Ident "c"))),
+                    SRepeat (SBlock [SAss (Ident "soma") (EAdd (EVar (Ident "soma")) (EInt 10)),
+                    -- SRepeat (SBlock [SAss (Ident "soma") (EAdd (EVar (Ident "soma")) (EInt 1)),
                                      SAss (Ident "c") (ESub (EVar (Ident "c")) (EInt 1))])
                         (EVar (Ident "c")),
                     SReturn (EVar (Ident "soma"))]]
