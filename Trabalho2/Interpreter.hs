@@ -118,10 +118,9 @@ int main () {
  int p;
  p = 1;
 repeat {
-  p = n * p;
-  n = n - 1;
-       }
-until ( n ) ;
+  p = p + 1
+}
+until ( p == 10 ) ;
 return p;
 }
 -}
