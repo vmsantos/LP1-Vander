@@ -141,7 +141,7 @@ execute environment x = case x of
    SIf exp stmT stmE -> if ( i (eval environment exp) /= 0) 
                           then execute environment stmT
                           else execute environment stmE
-   SRepeat stm exp -> if ( i (eval environment exp) /= 0) 
+   SRepeat stm exp -> if ( i (eval environment exp) > 0) 
                       then execute (execute environment stm) (SRepeat stm exp)
                       else environment                       
 
