@@ -97,6 +97,22 @@ Numa sessão com o GHCI, o seguinte resultado é esperado:
 
 -}
 
+exemploReturn3 = Prog [Fun Tint (Ident "main") []
+                        [SDec (Dec Tint (Ident "x")),
+                         SAss (Ident "x") (EInt 7),
+                         SDec (Dec Tint (Ident "r")),
+                         SAss (Ident "r") (Call (Ident "fatorial") [EVar (Ident "x")]),
+                         SReturn (EVar (Ident "r"))],
+                       Fun Tint (Ident "fatorial") [Dec Tint (Ident "n")] 
+                        [SDec (Dec Tint (Ident "p")),
+                         SAss (Ident "p") (EInt 1),
+                         SIf (EVar (Ident "n")) 
+                          (SRepeat (SBlock [SAss (Ident "p") (EMul (EVar (Ident "n")) (EVar (Ident "p"))),
+                                            SAss (Ident "n") (ESub (EVar (Ident "n")) (EInt 1))]) 
+                                   (EVar (Ident "n"))) 
+                          (SAss (Ident "p") (EInt 1)),
+                         SReturn (EVar (Ident "p"))]]
+
 
 executeP :: Program -> Environment
 
