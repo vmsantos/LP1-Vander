@@ -134,10 +134,10 @@ exemploReturn4 = Prog [Fun Tint (Ident "main") []
 int main () {
   int c;
   int soma;
-  c = 10;
+  c = 0;
   soma = 0;
   repeat {
-      soma = soma + c;
+      soma = soma + 10;
       c = c - 1;
     }
   until (c) ;
