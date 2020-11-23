@@ -147,7 +147,7 @@ execute environment x = case x of
    SRepeat stm exp -> let a = execute (execute environment stm) stm
                       in if ( i (eval a exp) /= 0 ) 
                         then execute (execute a stm) (SRepeat stm exp)
-                        else a
+                        else environment
 
 eval :: Environment -> Exp -> Valor
 eval environment x = case x of
