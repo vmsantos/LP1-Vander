@@ -113,6 +113,18 @@ exemploReturn3 = Prog [Fun Tint (Ident "main") []
                           (SAss (Ident "p") (EInt 1)),
                          SReturn (EVar (Ident "p"))]]
 
+{-
+int main () {
+ int p;
+ p = 1;
+repeat {
+  p = n * p;
+  n = n - 1;
+       }
+until ( n ) ;
+return p;
+}
+-}
 
 executeP :: Program -> Environment
 
