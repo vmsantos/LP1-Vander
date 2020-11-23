@@ -144,8 +144,8 @@ execute environment x = case x of
    {- SRepeat stm exp -> if ( i (eval environment exp) /= 0) 
                       then execute (execute environment stm) (SRepeat stm exp)
                       else environment       -}                 
-SRepeat stm exp -> let a = execute (execute environment stm) 
-                      in if ( i (eval environment exp) /=0 ) 
+   SRepeat stm exp -> let a = execute (execute environment stm) 
+                      in if ( i (eval environment exp) /= 0 ) 
                         then execute (execute environment stm) (SRepeat stm exp)
                         else environment
 
