@@ -120,7 +120,7 @@ int main () {
   while (c) ;
  return soma;
  }
-([[("c",-1),("soma",10),("return",10)]],[("main",int<-())])
+([[("c",0),("soma",0),("return",0)]],[("main",int<-())])
 -}
 
 exemploReturn4 = Prog [Fun Tint (Ident "main") [] 
